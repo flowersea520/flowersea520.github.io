@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/spring-logo.png">
 <meta property="article:published_time" content="2022-07-01T15:39:00.000Z">
-<meta property="article:modified_time" content="2022-07-01T15:37:26.415Z">
+<meta property="article:modified_time" content="2022-07-01T16:13:29.134Z">
 <meta property="article:author" content="flowersea">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Fluid">
@@ -316,7 +316,7 @@
 <h4 id="1-1-1-环境准备"><a href="#1-1-1-环境准备" class="headerlink" title="1.1.1 环境准备"></a>1.1.1 环境准备</h4><p>学习之前，先来准备下案例环境:</p>
 <ul>
 <li><p>创建一个Maven项目</p>
-<p><img src="/assets2/1629860338328.png" srcset="/img/loading.gif" lazyload alt="1629860338328"></p>
+<p><img src="/../img/1629860338328.png" srcset="/img/loading.gif" lazyload alt="1629860338328"></p>
 </li>
 <li><p>pom.xml添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.2.10.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -358,7 +358,7 @@
 <h5 id="步骤3-从IOC容器中获取对应的bean对象"><a href="#步骤3-从IOC容器中获取对应的bean对象" class="headerlink" title="步骤3:从IOC容器中获取对应的bean对象"></a>步骤3:从IOC容器中获取对应的bean对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>       <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>       <span class="hljs-type">DataSource</span> <span class="hljs-variable">dataSource</span> <span class="hljs-operator">=</span> (DataSource) ctx.getBean(<span class="hljs-string">&quot;dataSource&quot;</span>);<br>       System.out.println(dataSource);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h5 id="步骤4-运行程序"><a href="#步骤4-运行程序" class="headerlink" title="步骤4:运行程序"></a>步骤4:运行程序</h5><p>打印如下结果: 说明第三方bean对象已经被spring的IOC容器进行管理</p>
-<p><img src="/assets2/1629887733081.png" srcset="/img/loading.gif" lazyload alt="1629887733081"></p>
+<p><img src="/../img/1629887733081.png" srcset="/img/loading.gif" lazyload alt="1629887733081"></p>
 <p>做完案例后，我们可以将刚才思考的两个问题答案说下:</p>
 <ul>
 <li><p>第三方的类指的是什么?</p>
@@ -380,7 +380,7 @@
 <li><p>直接百度搜索</p>
 </li>
 <li><p>从mvn的仓库<code>https://mvnrepository.com/</code>中进行搜索</p>
-<p><img src="/assets2/1629888540286.png" srcset="/img/loading.gif" lazyload alt="1629888540286"></p>
+<p><img src="/../img/1629888540286.png" srcset="/img/loading.gif" lazyload alt="1629888540286"></p>
 </li>
 </ul>
 <h5 id="步骤2-配置第三方bean-1"><a href="#步骤2-配置第三方bean-1" class="headerlink" title="步骤2:配置第三方bean"></a>步骤2:配置第三方bean</h5><p>在applicationContext.xml配置文件中添加配置</p>
@@ -393,13 +393,13 @@
 <li>C3P0的四个属性和Druid的四个属性是不一样的</li>
 </ul>
 <h5 id="步骤3-运行程序"><a href="#步骤3-运行程序" class="headerlink" title="步骤3:运行程序"></a>步骤3:运行程序</h5><p>程序会报错，错误如下</p>
-<p><img src="/assets2/1629889170229.png" srcset="/img/loading.gif" lazyload alt="1629889170229"></p>
+<p><img src="/../img/1629889170229.png" srcset="/img/loading.gif" lazyload alt="1629889170229"></p>
 <p>报的错为&#x3D;&#x3D;ClassNotFoundException&#x3D;&#x3D;,翻译出来是<code>类没有发现的异常</code>，具体的类为<code>com.mysql.jdbc.Driver</code>。错误的原因是缺少mysql的驱动包。</p>
 <p>分析出错误的原因，具体的解决方案就比较简单，只需要在pom.xml把驱动包引入即可。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.47<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>添加完mysql的驱动包以后，再次运行App,就可以打印出结果:</p>
-<p><img src="/assets2/1629903845404.png" srcset="/img/loading.gif" lazyload alt="1629903845404"></p>
+<p><img src="/../img/1629903845404.png" srcset="/img/loading.gif" lazyload alt="1629903845404"></p>
 <p><strong>注意：</strong></p>
 <ul>
 <li>数据连接池在配置属性的时候，除了可以注入数据库连接四要素外还可以配置很多其他的属性，具体都有哪些属性用到的时候再去查，一般配置基础的四个，其他都有自己的默认值</li>
@@ -451,7 +451,7 @@
 <h6 id="步骤3-运行程序-1"><a href="#步骤3-运行程序-1" class="headerlink" title="步骤3:运行程序"></a>步骤3:运行程序</h6><p>在App类中，从IOC容器中获取bookDao对象，调用方法，查看值是否已经被获取到并打印控制台</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception&#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao</span> <span class="hljs-operator">=</span> (BookDao) ctx.getBean(<span class="hljs-string">&quot;bookDao&quot;</span>);<br>        bookDao.save();<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets2/1629975492444.png" srcset="/img/loading.gif" lazyload alt="1629975492444"></p>
+<p><img src="/../img/1629975492444.png" srcset="/img/loading.gif" lazyload alt="1629975492444"></p>
 <h5 id="1-2-2-3-注意事项"><a href="#1-2-2-3-注意事项" class="headerlink" title="1.2.2.3 注意事项"></a>1.2.2.3 注意事项</h5><p>至此，读取properties配置文件中的内容就已经完成，但是在使用的时候，有些注意事项:</p>
 <ul>
 <li><p>问题一:键值对的key为<code>username</code>引发的问题</p>
@@ -462,7 +462,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;</span></span><br><span class="hljs-string"><span class="hljs-tag">            http://www.springframework.org/schema/beans</span></span><br><span class="hljs-string"><span class="hljs-tag">            http://www.springframework.org/schema/beans/spring-beans.xsd</span></span><br><span class="hljs-string"><span class="hljs-tag">            http://www.springframework.org/schema/context</span></span><br><span class="hljs-string"><span class="hljs-tag">            http://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">context:property-placeholder</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;jdbc.properties&quot;</span>/&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bookDao&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.itheima.dao.impl.BookDaoImpl&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;username&#125;&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>3.运行后，在控制台打印的却不是<code>root666</code>，而是自己电脑的用户名</p>
-<p><img src="/assets2/1629975934694.png" srcset="/img/loading.gif" lazyload alt="1629975934694"></p>
+<p><img src="/../img/1629975934694.png" srcset="/img/loading.gif" lazyload alt="1629975934694"></p>
 <p>4.出现问题的原因是<code>&lt;context:property-placeholder/&gt;</code>标签会加载系统的环境变量，而且环境变量的值会被优先加载，如何查看系统的环境变量?</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception&#123;<br>    Map&lt;String, String&gt; env = System.getenv();<br>    System.out.println(env);<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -496,7 +496,7 @@
 <h4 id="1-2-3-加载properties文件小结"><a href="#1-2-3-加载properties文件小结" class="headerlink" title="1.2.3 加载properties文件小结"></a>1.2.3 加载properties文件小结</h4><p>  本节主要讲解的是properties配置文件的加载，需要掌握的内容有:</p>
 <ul>
 <li><p>如何开启<code>context</code>命名空间</p>
-<p><img src="/assets2/1629980280952.png" srcset="/img/loading.gif" lazyload alt="1629980280952"></p>
+<p><img src="/../img/1629980280952.png" srcset="/img/loading.gif" lazyload alt="1629980280952"></p>
 </li>
 <li><p>如何加载properties配置文件</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">context:property-placeholder</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">system-properties-mode</span>=<span class="hljs-string">&quot;NEVER&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
@@ -529,7 +529,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao</span> <span class="hljs-operator">=</span> (BookDao) ctx.getBean(<span class="hljs-string">&quot;bookDao&quot;</span>);<br>        bookDao.save();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>最终创建好的项目结构如下:</p>
-<p><img src="/assets2/1629982672522.png" srcset="/img/loading.gif" lazyload alt="1629982672522"></p>
+<p><img src="/../img/1629982672522.png" srcset="/img/loading.gif" lazyload alt="1629982672522"></p>
 <h3 id="2-2-容器"><a href="#2-2-容器" class="headerlink" title="2.2 容器"></a>2.2 容器</h3><h4 id="2-2-1-容器的创建方式"><a href="#2-2-1-容器的创建方式" class="headerlink" title="2.2.1 容器的创建方式"></a>2.2.1 容器的创建方式</h4><p>案例中创建<code>ApplicationContext</code>的方式为:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br></code></pre></td></tr></table></figure>
 
@@ -539,7 +539,7 @@
 
 <p>这种方式翻译为:&#x3D;&#x3D;文件系统下的XML配置文件&#x3D;&#x3D;</p>
 <p>使用这种方式，运行，会出现如下错误:</p>
-<p><img src="/assets2/1629983245121.png" srcset="/img/loading.gif" lazyload alt="1629983245121"></p>
+<p><img src="/../img/1629983245121.png" srcset="/img/loading.gif" lazyload alt="1629983245121"></p>
 <p>从错误信息中能发现，这种方式是从项目路径下开始查找<code>applicationContext.xml</code>配置文件的，所以需要将其修改为:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileSystemXmlApplicationContext</span>(<span class="hljs-string">&quot;D:\\workspace\\spring\\spring_10_container\\src\\main\\resources\\applicationContext.xml&quot;</span>); <br></code></pre></td></tr></table></figure>
 
@@ -558,9 +558,9 @@
 
 <p>这种方式就类似我们之前所学习依赖注入中的按类型注入。必须要确保IOC容器中该类型对应的bean对象只能有一个。</p>
 <h4 id="2-2-3-容器类层次结构"><a href="#2-2-3-容器类层次结构" class="headerlink" title="2.2.3 容器类层次结构"></a>2.2.3 容器类层次结构</h4><p>(1)在IDEA中双击<code>shift</code>,输入BeanFactory</p>
-<p><img src="/assets2/1629985148294.png" srcset="/img/loading.gif" lazyload alt="1629985148294"></p>
+<p><img src="/../img/1629985148294.png" srcset="/img/loading.gif" lazyload alt="1629985148294"></p>
 <p>(2)点击进入BeanFactory类，ctrl+h,就能查看到如下结构的层次关系</p>
-<p><img src="/assets2/1629984980781.png" srcset="/img/loading.gif" lazyload alt="1629984980781"></p>
+<p><img src="/../img/1629984980781.png" srcset="/img/loading.gif" lazyload alt="1629984980781"></p>
 <p>从图中可以看出，容器类也是从无到有根据需要一层层叠加上来的，大家重点理解下这种设计思想。</p>
 <h4 id="2-2-4-BeanFactory的使用"><a href="#2-2-4-BeanFactory的使用" class="headerlink" title="2.2.4 BeanFactory的使用"></a>2.2.4 BeanFactory的使用</h4><p>使用BeanFactory来创建IOC容器的具体实现方式为:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppForBeanFactory</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Resource</span> <span class="hljs-variable">resources</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathResource</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>        <span class="hljs-type">BeanFactory</span> <span class="hljs-variable">bf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">XmlBeanFactory</span>(resources);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao</span> <span class="hljs-operator">=</span> bf.getBean(BookDao.class);<br>        bookDao.save();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -618,10 +618,10 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-2-2-bean相关"><a href="#2-2-2-bean相关" class="headerlink" title="2.2.2 bean相关"></a>2.2.2 bean相关</h4><p><img src="/assets2/1629986510487.png" srcset="/img/loading.gif" lazyload alt="1629986510487"></p>
+<h4 id="2-2-2-bean相关"><a href="#2-2-2-bean相关" class="headerlink" title="2.2.2 bean相关"></a>2.2.2 bean相关</h4><p><img src="/../img/1629986510487.png" srcset="/img/loading.gif" lazyload alt="1629986510487"></p>
 <p>其实整个配置中最常用的就两个属性&#x3D;&#x3D;id&#x3D;&#x3D;和&#x3D;&#x3D;class&#x3D;&#x3D;。</p>
 <p>把scope、init-method、destroy-method框起来的原因是，后面注解在讲解的时候还会用到，所以大家对这三个属性关注下。</p>
-<h4 id="2-2-3-依赖注入相关"><a href="#2-2-3-依赖注入相关" class="headerlink" title="2.2.3 依赖注入相关"></a>2.2.3 依赖注入相关</h4><p><img src="/assets2/1629986848563.png" srcset="/img/loading.gif" lazyload alt="1629986848563"></p>
+<h4 id="2-2-3-依赖注入相关"><a href="#2-2-3-依赖注入相关" class="headerlink" title="2.2.3 依赖注入相关"></a>2.2.3 依赖注入相关</h4><p><img src="/../img/1629986848563.png" srcset="/img/loading.gif" lazyload alt="1629986848563"></p>
 <h2 id="3，IOC-x2F-DI注解开发"><a href="#3，IOC-x2F-DI注解开发" class="headerlink" title="3，IOC&#x2F;DI注解开发"></a>3，IOC&#x2F;DI注解开发</h2><p>Spring的IOC&#x2F;DI对应的配置开发就已经讲解完成，但是使用起来相对来说还是比较复杂的，复杂的地方在&#x3D;&#x3D;配置文件&#x3D;&#x3D;。</p>
 <p>前面咱们聊Spring的时候说过，Spring可以简化代码的开发，到现在并没有体会到。</p>
 <p>所以Spring到底是如何简化代码开发的呢?</p>
@@ -650,7 +650,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao</span> <span class="hljs-operator">=</span> (BookDao) ctx.getBean(<span class="hljs-string">&quot;bookDao&quot;</span>);<br>        bookDao.save();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>最终创建好的项目结构如下:</p>
-<p><img src="/assets2/1629989221808.png" srcset="/img/loading.gif" lazyload alt="1629989221808"></p>
+<p><img src="/../img/1629989221808.png" srcset="/img/loading.gif" lazyload alt="1629989221808"></p>
 <h3 id="3-2-注解开发定义bean"><a href="#3-2-注解开发定义bean" class="headerlink" title="3.2 注解开发定义bean"></a>3.2 注解开发定义bean</h3><p>在上述环境的基础上，我们来学一学Spring是如何通过注解实现bean的定义开发?</p>
 <h4 id="步骤1-删除原XML配置"><a href="#步骤1-删除原XML配置" class="headerlink" title="步骤1:删除原XML配置"></a>步骤1:删除原XML配置</h4><p>将配置文件中的<code>&lt;bean&gt;</code>标签删除掉</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bookDao&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.itheima.dao.impl.BookDaoImpl&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
@@ -660,7 +660,7 @@
 
 <p>&#x3D;&#x3D;注意:@Component注解不可以添加在接口上，因为接口是无法创建对象的。&#x3D;&#x3D;</p>
 <p>XML与注解配置的对应关系:</p>
-<p><img src="/assets2/1629990315619.png" srcset="/img/loading.gif" lazyload alt="1629990315619"></p>
+<p><img src="/../img/1629990315619.png" srcset="/img/loading.gif" lazyload alt="1629990315619"></p>
 <h4 id="步骤3-配置Spring的注解包扫描"><a href="#步骤3-配置Spring的注解包扫描" class="headerlink" title="步骤3:配置Spring的注解包扫描"></a>步骤3:配置Spring的注解包扫描</h4><p>为了让Spring框架能够扫描到写在类上的注解，需要在配置文件上进行包扫描</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;</span></span><br><span class="hljs-string"><span class="hljs-tag">            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.itheima&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -677,7 +677,7 @@
 <li>一般扫描到项目的组织名称即Maven的groupId下[如:com.itheima]即可。</li>
 </ul>
 <h4 id="步骤4：运行程序"><a href="#步骤4：运行程序" class="headerlink" title="步骤4：运行程序"></a>步骤4：运行程序</h4><p>运行<code>App</code>类查看打印结果</p>
-<p><img src="/assets2/1630027590558.png" srcset="/img/loading.gif" lazyload alt="1630027590558"></p>
+<p><img src="/../img/1630027590558.png" srcset="/img/loading.gif" lazyload alt="1630027590558"></p>
 <h4 id="步骤5-Service上添加注解"><a href="#步骤5-Service上添加注解" class="headerlink" title="步骤5:Service上添加注解"></a>步骤5:Service上添加注解</h4><p>在BookServiceImpl类上也添加<code>@Component</code>交给Spring框架管理</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BookServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">BookService</span> &#123;<br>    <span class="hljs-keyword">private</span> BookDao bookDao;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setBookDao</span><span class="hljs-params">(BookDao bookDao)</span> &#123;<br>        <span class="hljs-built_in">this</span>.bookDao = bookDao;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">save</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;book service save ...&quot;</span>);<br>        bookDao.save();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -685,7 +685,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;applicationContext.xml&quot;</span>);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao</span> <span class="hljs-operator">=</span> (BookDao) ctx.getBean(<span class="hljs-string">&quot;bookDao&quot;</span>);<br>        System.out.println(bookDao);<br>        <span class="hljs-comment">//按类型获取bean</span><br>        <span class="hljs-type">BookService</span> <span class="hljs-variable">bookService</span> <span class="hljs-operator">=</span> ctx.getBean(BookService.class);<br>        System.out.println(bookService);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>打印观察结果，两个bean对象都已经打印到控制台</p>
-<p><img src="/assets2/1630027743910.png" srcset="/img/loading.gif" lazyload alt="1630027743910"></p>
+<p><img src="/../img/1630027743910.png" srcset="/img/loading.gif" lazyload alt="1630027743910"></p>
 <p><strong>说明:</strong></p>
 <ul>
 <li><p>BookServiceImpl类没有起名称，所以在App中是按照类型来获取bean对象</p>
@@ -695,7 +695,7 @@
 </ul>
 <p>对于@Component注解，还衍生出了其他三个注解<code>@Controller</code>、<code>@Service</code>、<code>@Repository</code></p>
 <p>通过查看源码会发现:</p>
-<p><img src="/assets2/1630028345074.png" srcset="/img/loading.gif" lazyload alt="1630028345074"></p>
+<p><img src="/../img/1630028345074.png" srcset="/img/loading.gif" lazyload alt="1630028345074"></p>
 <p>这三个注解和@Component注解的作用是一样的，为什么要衍生出这三个呢?</p>
 <p>方便我们后期在编写类的时候能很好的区分出这个类是属于<code>表现层</code>、<code>业务层</code>还是<code>数据层</code>的类。</p>
 <h4 id="知识点1-Component等"><a href="#知识点1-Component等" class="headerlink" title="知识点1:@Component等"></a>知识点1:@Component等</h4><table>
@@ -744,11 +744,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppForAnnotation</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(SpringConfig.class);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao</span> <span class="hljs-operator">=</span> (BookDao) ctx.getBean(<span class="hljs-string">&quot;bookDao&quot;</span>);<br>        System.out.println(bookDao);<br>        <span class="hljs-type">BookService</span> <span class="hljs-variable">bookService</span> <span class="hljs-operator">=</span> ctx.getBean(BookService.class);<br>        System.out.println(bookService);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>运行AppForAnnotation,可以看到两个对象依然被获取成功</p>
-<p><img src="/assets2/1630029110506.png" srcset="/img/loading.gif" lazyload alt="1630029110506"></p>
+<p><img src="/../img/1630029110506.png" srcset="/img/loading.gif" lazyload alt="1630029110506"></p>
 <p>至此，纯注解开发的方式就已经完成了，主要内容包括:</p>
 <ul>
 <li><p>Java类替换Spring核心配置文件</p>
-<p><img src="/assets2/1630029254372.png" srcset="/img/loading.gif" lazyload alt="1630029254372"></p>
+<p><img src="/../img/1630029254372.png" srcset="/img/loading.gif" lazyload alt="1630029254372"></p>
 </li>
 <li><p>@Configuration注解用于设定当前类为配置类</p>
 </li>
@@ -833,14 +833,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">AnnotationConfigApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(SpringConfig.class);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao1</span> <span class="hljs-operator">=</span> ctx.getBean(BookDao.class);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao2</span> <span class="hljs-operator">=</span> ctx.getBean(BookDao.class);<br>        System.out.println(bookDao1);<br>        System.out.println(bookDao2);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>最终创建好的项目结构如下:</p>
-<p><img src="/assets2/1630031112993.png" srcset="/img/loading.gif" lazyload alt="1630031112993"></p>
+<p><img src="/../img/1630031112993.png" srcset="/img/loading.gif" lazyload alt="1630031112993"></p>
 <h4 id="3-3-2-Bean的作用范围"><a href="#3-3-2-Bean的作用范围" class="headerlink" title="3.3.2 Bean的作用范围"></a>3.3.2 Bean的作用范围</h4><p>(1)先运行App类,在控制台打印两个一摸一样的地址，说明默认情况下bean是单例</p>
-<p><img src="/assets2/1630031192753.png" srcset="/img/loading.gif" lazyload alt="1630031192753"></p>
+<p><img src="/../img/1630031192753.png" srcset="/img/loading.gif" lazyload alt="1630031192753"></p>
 <p>(2)要想将BookDaoImpl变成非单例，只需要在其类上添加<code>@scope</code>注解</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Repository</span><br><span class="hljs-comment">//@Scope设置bean的作用范围</span><br><span class="hljs-meta">@Scope(&quot;prototype&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BookDaoImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">BookDao</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">save</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;book dao save ...&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>再次执行App类，打印结果:</p>
-<p><img src="/assets2/1630031808947.png" srcset="/img/loading.gif" lazyload alt="1630031808947"></p>
+<p><img src="/../img/1630031808947.png" srcset="/img/loading.gif" lazyload alt="1630031808947"></p>
 <h5 id="知识点1：-Scope"><a href="#知识点1：-Scope" class="headerlink" title="知识点1：@Scope"></a>知识点1：@Scope</h5><table>
 <thead>
 <tr>
@@ -876,7 +876,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">AnnotationConfigApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(SpringConfig.class);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao1</span> <span class="hljs-operator">=</span> ctx.getBean(BookDao.class);<br>        <span class="hljs-type">BookDao</span> <span class="hljs-variable">bookDao2</span> <span class="hljs-operator">=</span> ctx.getBean(BookDao.class);<br>        System.out.println(bookDao1);<br>        System.out.println(bookDao2);<br>        ctx.close(); <span class="hljs-comment">//关闭容器</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>(4)运行App,类查看打印结果，证明init和destroy方法都被执行了。</p>
-<p><img src="/assets2/1630032385498.png" srcset="/img/loading.gif" lazyload alt="1630032385498"></p>
+<p><img src="/../img/1630032385498.png" srcset="/img/loading.gif" lazyload alt="1630032385498"></p>
 <p>&#x3D;&#x3D;<strong>注意:</strong>@PostConstruct和@PreDestroy注解如果找不到，需要导入下面的jar包&#x3D;&#x3D;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;dependency&gt;<br>  &lt;groupId&gt;javax.annotation&lt;/groupId&gt;<br>  &lt;artifactId&gt;javax.annotation-api&lt;/artifactId&gt;<br>  &lt;version&gt;<span class="hljs-number">1.3</span><span class="hljs-number">.2</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure>
 
@@ -930,7 +930,7 @@
 </tr>
 </tbody></table>
 <p><strong>小结</strong></p>
-<p><img src="/assets2/1630033039358.png" srcset="/img/loading.gif" lazyload alt="1630033039358"></p>
+<p><img src="/../img/1630033039358.png" srcset="/img/loading.gif" lazyload alt="1630033039358"></p>
 <h3 id="3-4-注解开发依赖注入"><a href="#3-4-注解开发依赖注入" class="headerlink" title="3.4 注解开发依赖注入"></a>3.4 注解开发依赖注入</h3><p>Spring为了使用注解简化开发，并没有提供<code>构造函数注入</code>、<code>setter注入</code>对应的注解，只提供了自动装配的注解实现。</p>
 <h4 id="3-4-1-环境准备"><a href="#3-4-1-环境准备" class="headerlink" title="3.4.1 环境准备"></a>3.4.1 环境准备</h4><p>在学习之前，把案例环境介绍下:</p>
 <ul>
@@ -949,9 +949,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">AnnotationConfigApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(SpringConfig.class);<br>        <span class="hljs-type">BookService</span> <span class="hljs-variable">bookService</span> <span class="hljs-operator">=</span> ctx.getBean(BookService.class);<br>        bookService.save();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>最终创建好的项目结构如下:</p>
-<p><img src="/assets2/1630033604129.png" srcset="/img/loading.gif" lazyload alt="1630033604129"></p>
+<p><img src="/../img/1630033604129.png" srcset="/img/loading.gif" lazyload alt="1630033604129"></p>
 <p>环境准备好后，运行后会发现有问题</p>
-<p><img src="/assets2/1630033710052.png" srcset="/img/loading.gif" lazyload alt="1630033710052"></p>
+<p><img src="/../img/1630033710052.png" srcset="/img/loading.gif" lazyload alt="1630033710052"></p>
 <p>出现问题的原因是，在BookServiceImpl类中添加了BookDao的属性，并提供了setter方法，但是目前是没有提供配置注入BookDao的，所以bookDao对象为Null,调用其save方法就会报<code>控指针异常</code>。</p>
 <h4 id="3-4-2-注解实现按照类型注入"><a href="#3-4-2-注解实现按照类型注入" class="headerlink" title="3.4.2 注解实现按照类型注入"></a>3.4.2 注解实现按照类型注入</h4><p>对于这个问题使用注解该如何解决?</p>
 <p>(1) 在BookServiceImpl类的bookDao属性上添加<code>@Autowired</code>注解</p>
@@ -972,7 +972,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Repository</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BookDaoImpl2</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">BookDao</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">save</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;book dao save ...2&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>这个时候再次运行App，就会报错</p>
-<p><img src="/assets2/1630034272959.png" srcset="/img/loading.gif" lazyload alt="1630034272959"></p>
+<p><img src="/../img/1630034272959.png" srcset="/img/loading.gif" lazyload alt="1630034272959"></p>
 <p>此时，按照类型注入就无法区分到底注入哪个对象，解决方案:<code>按照名称注入</code></p>
 <ul>
 <li><p>先给两个Dao类分别起个名称</p>
@@ -985,7 +985,7 @@
 <li><p>@Autowired默认按照类型自动装配，如果IOC容器中同类的Bean找到多个，就按照变量名和Bean的名称匹配。因为变量名叫<code>bookDao</code>而容器中也有一个<code>booDao</code>，所以可以成功注入。</p>
 </li>
 <li><p>分析下面这种情况是否能完成注入呢?</p>
-<p><img src="/assets2/1630036236150.png" srcset="/img/loading.gif" lazyload alt="1630036236150"></p>
+<p><img src="/../img/1630036236150.png" srcset="/img/loading.gif" lazyload alt="1630036236150"></p>
 </li>
 <li><p>不行，因为按照类型会找到多个bean对象，此时会按照<code>bookDao</code>名称去找，因为IOC容器只有名称叫<code>bookDao1</code>和<code>bookDao2</code>,所以找不到，会报<code>NoUniqueBeanDefinitionException</code></p>
 </li>
@@ -1016,7 +1016,7 @@
 
 <p>步骤4:运行程序</p>
 <p>运行App类，查看运行结果，说明配置文件中的内容已经被加载到</p>
-<p><img src="/assets2/1630084683663.png" srcset="/img/loading.gif" lazyload alt="1630084683663"></p>
+<p><img src="/../img/1630084683663.png" srcset="/img/loading.gif" lazyload alt="1630084683663"></p>
 <p><strong>注意:</strong></p>
 <ul>
 <li><p>如果读取的properties配置文件有多个，可以使用<code>@PropertySource</code>的属性来指定多个</p>
@@ -1145,7 +1145,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">AnnotationConfigApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(SpringConfig.class);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>最终创建好的项目结构如下:</p>
-<p><img src="/assets2/1630122466404.png" srcset="/img/loading.gif" lazyload alt="1630122466404"></p>
+<p><img src="/../img/1630122466404.png" srcset="/img/loading.gif" lazyload alt="1630122466404"></p>
 <h3 id="4-2-注解开发管理第三方bean"><a href="#4-2-注解开发管理第三方bean" class="headerlink" title="4.2 注解开发管理第三方bean"></a>4.2 注解开发管理第三方bean</h3><p>在上述环境中完成对<code>Druid</code>数据源的管理，具体的实现步骤为:</p>
 <h4 id="步骤1-导入对应的jar包"><a href="#步骤1-导入对应的jar包" class="headerlink" title="步骤1:导入对应的jar包"></a>步骤1:导入对应的jar包</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.16<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -1265,9 +1265,9 @@
 <h6 id="步骤2-在JdbcConfig类的方法上添加参数"><a href="#步骤2-在JdbcConfig类的方法上添加参数" class="headerlink" title="步骤2:在JdbcConfig类的方法上添加参数"></a>步骤2:在JdbcConfig类的方法上添加参数</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-keyword">public</span> DataSource <span class="hljs-title function_">dataSource</span><span class="hljs-params">(BookDao bookDao)</span>&#123;<br>    System.out.println(bookDao);<br>    <span class="hljs-type">DruidDataSource</span> <span class="hljs-variable">ds</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DruidDataSource</span>();<br>    ds.setDriverClassName(driver);<br>    ds.setUrl(url);<br>    ds.setUsername(userName);<br>    ds.setPassword(password);<br>    <span class="hljs-keyword">return</span> ds;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>&#x3D;&#x3D;引用类型注入只需要为bean定义方法设置形参即可，容器会根据类型自动装配对象。&#x3D;&#x3D;</p>
-<h6 id="步骤3-运行程序-4"><a href="#步骤3-运行程序-4" class="headerlink" title="步骤3:运行程序"></a>步骤3:运行程序</h6><p><img src="/assets2/1630125475609.png" srcset="/img/loading.gif" lazyload alt="1630125475609"></p>
+<h6 id="步骤3-运行程序-4"><a href="#步骤3-运行程序-4" class="headerlink" title="步骤3:运行程序"></a>步骤3:运行程序</h6><p><img src="/../img/1630125475609.png" srcset="/img/loading.gif" lazyload alt="1630125475609"></p>
 <h2 id="5，注解开发总结"><a href="#5，注解开发总结" class="headerlink" title="5，注解开发总结"></a>5，注解开发总结</h2><p>前面我们已经完成了XML配置和注解的开发实现，至于两者之间的差异，咱们放在一块去对比回顾下:</p>
-<p><img src="/assets2/1630134786448.png" srcset="/img/loading.gif" lazyload alt="1630134786448"></p>
+<p><img src="/../img/1630134786448.png" srcset="/img/loading.gif" lazyload alt="1630134786448"></p>
 <h2 id="6，Spring整合"><a href="#6，Spring整合" class="headerlink" title="6，Spring整合"></a>6，Spring整合</h2><p>课程学习到这里，已经对Spring有一个简单的认识了，Spring有一个容器，叫做IoC容器，里面保存bean。在进行企业级开发的时候，其实除了将自己写的类让Spring管理之外，还有一部分重要的工作就是使用第三方的技术。前面已经讲了如何管理第三方bean了，下面结合IoC和DI，整合2个常用技术，进一步加深对Spring的使用理解。</p>
 <h3 id="6-1-Spring整合Mybatis思路分析"><a href="#6-1-Spring整合Mybatis思路分析" class="headerlink" title="6.1 Spring整合Mybatis思路分析"></a>6.1 Spring整合Mybatis思路分析</h3><h4 id="6-1-1-环境准备"><a href="#6-1-1-环境准备" class="headerlink" title="6.1.1 环境准备"></a>6.1.1 环境准备</h4><p>在准备环境的过程中，我们也来回顾下Mybatis开发的相关内容:</p>
 <h5 id="步骤1-准备数据库表"><a href="#步骤1-准备数据库表" class="headerlink" title="步骤1:准备数据库表"></a>步骤1:准备数据库表</h5><p>Mybatis是来操作数据库表，所以先创建一个数据库及表</p>
@@ -1290,15 +1290,15 @@
 
 <h5 id="步骤8-编写应用程序"><a href="#步骤8-编写应用程序" class="headerlink" title="步骤8:编写应用程序"></a>步骤8:编写应用程序</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-comment">// 1. 创建SqlSessionFactoryBuilder对象</span><br>        <span class="hljs-type">SqlSessionFactoryBuilder</span> <span class="hljs-variable">sqlSessionFactoryBuilder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBuilder</span>();<br>        <span class="hljs-comment">// 2. 加载SqlMapConfig.xml配置文件</span><br>        <span class="hljs-type">InputStream</span> <span class="hljs-variable">inputStream</span> <span class="hljs-operator">=</span> Resources.getResourceAsStream(<span class="hljs-string">&quot;SqlMapConfig.xml.bak&quot;</span>);<br>        <span class="hljs-comment">// 3. 创建SqlSessionFactory对象</span><br>        <span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">sqlSessionFactory</span> <span class="hljs-operator">=</span> sqlSessionFactoryBuilder.build(inputStream);<br>        <span class="hljs-comment">// 4. 获取SqlSession</span><br>        <span class="hljs-type">SqlSession</span> <span class="hljs-variable">sqlSession</span> <span class="hljs-operator">=</span> sqlSessionFactory.openSession();<br>        <span class="hljs-comment">// 5. 执行SqlSession对象执行查询，获取结果User</span><br>        <span class="hljs-type">AccountDao</span> <span class="hljs-variable">accountDao</span> <span class="hljs-operator">=</span> sqlSession.getMapper(AccountDao.class);<br><br>        <span class="hljs-type">Account</span> <span class="hljs-variable">ac</span> <span class="hljs-operator">=</span> accountDao.findById(<span class="hljs-number">1</span>);<br>        System.out.println(ac);<br><br>        <span class="hljs-comment">// 6. 释放资源</span><br>        sqlSession.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h5 id="步骤9-运行程序"><a href="#步骤9-运行程序" class="headerlink" title="步骤9:运行程序"></a>步骤9:运行程序</h5><p><img src="/assets2/1630136904087.png" srcset="/img/loading.gif" lazyload alt="1630136904087"></p>
+<h5 id="步骤9-运行程序"><a href="#步骤9-运行程序" class="headerlink" title="步骤9:运行程序"></a>步骤9:运行程序</h5><p><img src="/../img/1630136904087.png" srcset="/img/loading.gif" lazyload alt="1630136904087"></p>
 <h4 id="6-1-2-整合思路分析"><a href="#6-1-2-整合思路分析" class="headerlink" title="6.1.2 整合思路分析"></a>6.1.2 整合思路分析</h4><p>Mybatis的基础环境我们已经准备好了，接下来就得分析下在上述的内容中，哪些对象可以交给Spring来管理?</p>
 <ul>
 <li><p>Mybatis程序核心对象分析</p>
-<p><img src="/assets2/1630137189480.png" srcset="/img/loading.gif" lazyload alt="1630137189480"></p>
+<p><img src="/../img/1630137189480.png" srcset="/img/loading.gif" lazyload alt="1630137189480"></p>
 <p>从图中可以获取到，真正需要交给Spring管理的是&#x3D;&#x3D;SqlSessionFactory&#x3D;&#x3D;</p>
 </li>
 <li><p>整合Mybatis，就是将Mybatis用到的内容交给Spring管理，分析下配置文件</p>
-<p><img src="/assets2/1630137388717.png" srcset="/img/loading.gif" lazyload alt="1630137388717"></p>
+<p><img src="/../img/1630137388717.png" srcset="/img/loading.gif" lazyload alt="1630137388717"></p>
 <p><strong>说明:</strong></p>
 <ul>
 <li>第一行读取外部properties配置文件，Spring有提供具体的解决方案<code>@PropertySource</code>,需要交给Spring</li>
@@ -1327,14 +1327,14 @@
 <p><strong>说明:</strong></p>
 <ul>
 <li><p>使用SqlSessionFactoryBean封装SqlSessionFactory需要的环境信息</p>
-<p><img src="/assets2/1630138835057.png" srcset="/img/loading.gif" lazyload alt="1630138835057"></p>
+<p><img src="/../img/1630138835057.png" srcset="/img/loading.gif" lazyload alt="1630138835057"></p>
 <ul>
 <li>SqlSessionFactoryBean是前面我们讲解FactoryBean的一个子类，在该类中将SqlSessionFactory的创建进行了封装，简化对象的创建，我们只需要将其需要的内容设置即可。</li>
 <li>方法中有一个参数为dataSource,当前Spring容器中已经创建了Druid数据源，类型刚好是DataSource类型，此时在初始化SqlSessionFactoryBean这个对象的时候，发现需要使用DataSource对象，而容器中刚好有这么一个对象，就自动加载了DruidDataSource对象。</li>
 </ul>
 </li>
 <li><p>使用MapperScannerConfigurer加载Dao接口，创建代理对象保存到IOC容器中</p>
-<p><img src="/assets2/1630138916939.png" srcset="/img/loading.gif" lazyload alt="1630138916939"></p>
+<p><img src="/../img/1630138916939.png" srcset="/img/loading.gif" lazyload alt="1630138916939"></p>
 <ul>
 <li>这个MapperScannerConfigurer对象也是MyBatis提供的专用于整合的jar包中的类，用来处理原始配置文件中的mappers相关配置，加载数据层的Mapper接口类</li>
 <li>MapperScannerConfigurer有一个核心属性basePackage，就是用来设置所扫描的包路径</li>
@@ -1346,7 +1346,7 @@
 <h4 id="步骤7-编写运行类"><a href="#步骤7-编写运行类" class="headerlink" title="步骤7:编写运行类"></a>步骤7:编写运行类</h4><p>在运行类中，从IOC容器中获取Service对象，调用方法获取结果</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App2</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">ApplicationContext</span> <span class="hljs-variable">ctx</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AnnotationConfigApplicationContext</span>(SpringConfig.class);<br><br>        <span class="hljs-type">AccountService</span> <span class="hljs-variable">accountService</span> <span class="hljs-operator">=</span> ctx.getBean(AccountService.class);<br><br>        <span class="hljs-type">Account</span> <span class="hljs-variable">ac</span> <span class="hljs-operator">=</span> accountService.findById(<span class="hljs-number">1</span>);<br>        System.out.println(ac);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h4 id="步骤8-运行程序"><a href="#步骤8-运行程序" class="headerlink" title="步骤8:运行程序"></a>步骤8:运行程序</h4><p><img src="/assets2/1630139036627.png" srcset="/img/loading.gif" lazyload alt="1630139036627"></p>
+<h4 id="步骤8-运行程序"><a href="#步骤8-运行程序" class="headerlink" title="步骤8:运行程序"></a>步骤8:运行程序</h4><p><img src="/../img/1630139036627.png" srcset="/img/loading.gif" lazyload alt="1630139036627"></p>
 <p>支持Spring与Mybatis的整合就已经完成了，其中主要用到的两个类分别是:</p>
 <ul>
 <li>&#x3D;&#x3D;SqlSessionFactoryBean&#x3D;&#x3D;</li>
@@ -1354,7 +1354,7 @@
 </ul>
 <h3 id="6-3-Spring整合Junit"><a href="#6-3-Spring整合Junit" class="headerlink" title="6.3 Spring整合Junit"></a>6.3 Spring整合Junit</h3><p>整合Junit与整合Druid和MyBatis差异比较大，为什么呢？Junit是一个搞单元测试用的工具，它不是我们程序的主体，也不会参加最终程序的运行，从作用上来说就和之前的东西不一样，它不是做功能的，看做是一个辅助工具就可以了。</p>
 <h4 id="6-3-1-环境准备"><a href="#6-3-1-环境准备" class="headerlink" title="6.3.1 环境准备"></a>6.3.1 环境准备</h4><p>这块环境，大家可以直接使用Spring与Mybatis整合的环境即可。当然也可以重新创建一个，因为内容是一模一样，所以我们直接来看下项目结构即可:</p>
-<p><img src="/assets2/1630139720273.png" srcset="/img/loading.gif" lazyload alt="1630139720273"></p>
+<p><img src="/../img/1630139720273.png" srcset="/img/loading.gif" lazyload alt="1630139720273"></p>
 <h4 id="6-3-2-整合Junit步骤"><a href="#6-3-2-整合Junit步骤" class="headerlink" title="6.3.2 整合Junit步骤"></a>6.3.2 整合Junit步骤</h4><p>在上述环境的基础上，我们来对Junit进行整合。</p>
 <h5 id="步骤1-引入依赖"><a href="#步骤1-引入依赖" class="headerlink" title="步骤1:引入依赖"></a>步骤1:引入依赖</h5><p>pom.xml</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.2.10.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
