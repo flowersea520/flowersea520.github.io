@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207032356611.png">
 <meta property="article:published_time" content="2022-07-01T17:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-03T16:07:14.619Z">
+<meta property="article:modified_time" content="2022-07-03T16:17:22.640Z">
 <meta property="article:author" content="flowersea">
 <meta property="article:tag" content="Springboot">
 <meta name="twitter:card" content="summary_large_image">
@@ -325,13 +325,13 @@
 <ol start="3">
 <li><strong>编写 <code>SpringMVC</code> 的配置类</strong></li>
 </ol>
-<img src="assets/image-20210911133219847.png" srcset="/img/loading.gif" lazyload alt="image-20210911133219847" style="zoom:50%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040015193.png" srcset="/img/loading.gif" lazyload alt="image-20210911133219847" style="zoom:50%;" />
 
 <p>​	做到这只是将工程的架子搭起来。要想被外界访问，最起码还需要提供一个 <code>Controller</code> 类，在该类中提供一个方法。</p>
 <ol start="4">
 <li><strong>编写 <code>Controller</code> 类</strong></li>
 </ol>
-<img src="assets/image-20210911133532151.png" srcset="/img/loading.gif" lazyload alt="image-20210911133532151" style="zoom:50%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040015505.png" srcset="/img/loading.gif" lazyload alt="image-20210911133532151" style="zoom:50%;" />
 
 <p>从上面的 <code>SpringMVC</code> 程序开发可以看到，前三步都是在搭建环境，而且这三步基本都是固定的。<code>SpringBoot</code> 就是对这三步进行简化了。接下来我们通过一个入门案例来体现 <code>SpingBoot</code> 简化 <code>Spring</code> 开发。</p>
 <h3 id="1-1-SpringBoot快速入门"><a href="#1-1-SpringBoot快速入门" class="headerlink" title="1.1  SpringBoot快速入门"></a>1.1  SpringBoot快速入门</h3><h4 id="1-1-1-开发步骤"><a href="#1-1-1-开发步骤" class="headerlink" title="1.1.1  开发步骤"></a>1.1.1  开发步骤</h4><p><code>SpringBoot</code> 开发起来特别简单，分为如下几步：</p>
@@ -345,19 +345,19 @@
 <h5 id="1-1-1-1-创建新模块"><a href="#1-1-1-1-创建新模块" class="headerlink" title="1.1.1.1  创建新模块"></a>1.1.1.1  创建新模块</h5><ul>
 <li>点击 <code>+</code> 选择 <code>New Module</code> 创建新模块</li>
 </ul>
-<img src="assets/image-20210911155135008.png" srcset="/img/loading.gif" lazyload alt="image-20210911155135008" style="zoom:60%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040015762.png" srcset="/img/loading.gif" lazyload alt="image-20210911155135008" style="zoom:60%;" />
 
 <ul>
 <li><p>选择 <code>Spring Initializr</code> ，用来创建 <code>SpringBoot</code> 工程</p>
 <p>以前我们选择的是 <code>Maven</code> ，今天选择 <code>Spring Initializr</code> 来快速构建 <code>SpringBoot</code> 工程。而在 <code>Module SDK</code> 这一项选择我们安装的 <code>JDK</code> 版本。</p>
 </li>
 </ul>
-<img src="assets/image-20210911155249493.png" srcset="/img/loading.gif" lazyload alt="image-20210911155249493" style="zoom:60%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040015914.png" srcset="/img/loading.gif" lazyload alt="image-20210911155249493" style="zoom:60%;" />
 
 <ul>
 <li><p>对 <code>SpringBoot</code> 工程进行相关的设置</p>
 <p>我们使用这种方式构建的 <code>SpringBoot</code> 工程其实也是 <code>Maven</code> 工程，而该方式只是一种快速构建的方式而已。</p>
-<img src="assets/image-20210911155916899.png" srcset="/img/loading.gif" lazyload alt="image-20210911155916899" style="zoom:67%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040016735.png" srcset="/img/loading.gif" lazyload alt="image-20210911155916899" style="zoom:67%;" />
 
 <blockquote>
 <p>&#x3D;&#x3D;注意：打包方式这里需要设置为 <code>Jar</code>&#x3D;&#x3D;</p>
@@ -367,15 +367,15 @@
 <p>由于我们需要开发一个 <code>web</code> 程序，使用到了 <code>SpringMVC</code> 技术，所以按照下图红框进行勾选</p>
 </li>
 </ul>
-<img src="assets/image-20210911160040328.png" srcset="/img/loading.gif" lazyload alt="image-20210911160040328" style="zoom:60%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040016457.png" srcset="/img/loading.gif" lazyload alt="image-20210911160040328" style="zoom:60%;" />
 
 <ul>
 <li>下图界面不需要任何修改，直接点击 <code>Finish</code> 完成 <code>SpringBoot</code> 工程的构建</li>
 </ul>
-<img src="assets/image-20210911160353534.png" srcset="/img/loading.gif" lazyload alt="image-20210911160353534" style="zoom:70%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040016332.png" srcset="/img/loading.gif" lazyload alt="image-20210911160353534" style="zoom:70%;" />
 
 <p>经过以上步骤后就创建了如下结构的模块，它会帮我们自动生成一个 <code>Application</code> 类，而该类一会再启动服务器时会用到</p>
-<img src="assets/image-20210911160541833.png" srcset="/img/loading.gif" lazyload alt="image-20210911160541833" style="zoom:80%;" />
+<img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207040016807.png" srcset="/img/loading.gif" lazyload alt="image-20210911160541833" style="zoom:80%;" />
 
 <blockquote>
 <p>&#x3D;&#x3D;注意：&#x3D;&#x3D;</p>
