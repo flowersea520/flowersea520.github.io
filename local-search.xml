@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>MyBatisPlus笔记</title>
+    <link href="/2022/07/09/2022-7-9-MyBatisPlus%E7%AC%94%E8%AE%B0/"/>
+    <url>/2022/07/09/2022-7-9-MyBatisPlus%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h3 id="4-5-百度网盘密码数据兼容处理"><a href="#4-5-百度网盘密码数据兼容处理" class="headerlink" title="4.5 百度网盘密码数据兼容处理"></a>4.5 百度网盘密码数据兼容处理</h3><h4 id="4-5-1-需求分析"><a href="#4-5-1-需求分析" class="headerlink" title="4.5.1 需求分析"></a>4.5.1 需求分析</h4><p>需求: 对百度网盘分享链接输入密码时尾部多输入的空格做兼容处理。</p><p><a href="https://flowersea520.github.io/img/1630240203033.png"><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207090501233.png" alt="1630240203033"></a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>MyBatisPlus</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Maven高级笔记</title>
     <link href="/2022/07/02/Maven%E9%AB%98%E7%BA%A7/"/>
     <url>/2022/07/02/Maven%E9%AB%98%E7%BA%A7/</url>
