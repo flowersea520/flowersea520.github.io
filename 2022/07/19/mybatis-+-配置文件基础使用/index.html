@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="flowersea">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="使用mybatis + 配置文件（不用注解）1.1 创建数据库以及表 123456789101112131415161718192021-- 创建测试表CREATE TABLE &#96;tb_user&#96; (&#96;id&#96; bigint(20) NOT NULL AUTO_INCREMENT COMMENT &amp;#x27;主键ID&amp;#x27;,&#96;user_name&#96; varchar(20) NOT NULL CO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis + 配置文件基础使用">
+<meta property="og:url" content="http://example.com/2022/07/19/mybatis-+-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="flowersea">
+<meta property="og:description" content="使用mybatis + 配置文件（不用注解）1.1 创建数据库以及表 123456789101112131415161718192021-- 创建测试表CREATE TABLE &#96;tb_user&#96; (&#96;id&#96; bigint(20) NOT NULL AUTO_INCREMENT COMMENT &amp;#x27;主键ID&amp;#x27;,&#96;user_name&#96; varchar(20) NOT NULL CO">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207191053127.jpg">
+<meta property="article:published_time" content="2022-07-19T02:52:00.000Z">
+<meta property="article:modified_time" content="2022-07-19T02:55:20.690Z">
+<meta property="article:author" content="flowersea">
+<meta property="article:tag" content="mybatis">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207191053127.jpg">
+  
+  
+  
+  <title>mybatis + 配置文件基础使用 - flowersea</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"uJ813FraAgdWfO9A0C4tCk8w-gzGzoHsz","app_key":"tGt6nPWqmrHkVie023eG0wbU","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>flowersea</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="mybatis + 配置文件基础使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-19 10:52" pubdate>
+          2022年7月19日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">mybatis + 配置文件基础使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="使用mybatis-配置文件（不用注解）"><a href="#使用mybatis-配置文件（不用注解）" class="headerlink" title="使用mybatis + 配置文件（不用注解）"></a>使用mybatis + 配置文件（不用注解）</h1><h2 id="1-1-创建数据库以及表"><a href="#1-1-创建数据库以及表" class="headerlink" title="1.1 创建数据库以及表"></a>1.1 创建数据库以及表</h2><p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207191031794.png" srcset="/img/loading.gif" lazyload alt="image-20220719103117700"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 创建测试表</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `tb_user` (<br>`id` <span class="hljs-type">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="hljs-string">&#x27;主键ID&#x27;</span>,<br>`user_name` <span class="hljs-type">varchar</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;用户名&#x27;</span>,<br>`password` <span class="hljs-type">varchar</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;密码&#x27;</span>,<br>`name` <span class="hljs-type">varchar</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;姓名&#x27;</span>,<br>`age` <span class="hljs-type">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;年龄&#x27;</span>,<br>`email` <span class="hljs-type">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;邮箱&#x27;</span>,<br><span class="hljs-keyword">PRIMARY</span> KEY (`id`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB AUTO_INCREMENT<span class="hljs-operator">=</span><span class="hljs-number">1</span> <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>utf8;<br><span class="hljs-comment">-- 插入测试数据</span><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> `tb_user` (`id`, `user_name`, `password`, `name`, `age`, `email`) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;zhangsan&#x27;</span>, <span class="hljs-string">&#x27;123456&#x27;</span>, <span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-string">&#x27;18&#x27;</span>, <span class="hljs-string">&#x27;test1@itcast.cn&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> `tb_user` (`id`, `user_name`, `password`, `name`, `age`, `email`) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;lisi&#x27;</span>, <span class="hljs-string">&#x27;123456&#x27;</span>, <span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-string">&#x27;20&#x27;</span>, <span class="hljs-string">&#x27;test2@itcast.cn&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> `tb_user` (`id`, `user_name`, `password`, `name`, `age`, `email`) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;wangwu&#x27;</span>, <span class="hljs-string">&#x27;123456&#x27;</span>, <span class="hljs-string">&#x27;王五&#x27;</span>, <span class="hljs-string">&#x27;28&#x27;</span>, <span class="hljs-string">&#x27;test3@itcast.cn&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> `tb_user` (`id`, `user_name`, `password`, `name`, `age`, `email`) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;zhaoliu&#x27;</span>, <span class="hljs-string">&#x27;123456&#x27;</span>, <span class="hljs-string">&#x27;赵六&#x27;</span>, <span class="hljs-string">&#x27;21&#x27;</span>, <span class="hljs-string">&#x27;test4@itcast.cn&#x27;</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> `tb_user` (`id`, `user_name`, `password`, `name`, `age`, `email`) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;sunqi&#x27;</span>, <span class="hljs-string">&#x27;123456&#x27;</span>, <span class="hljs-string">&#x27;孙七&#x27;</span>, <span class="hljs-string">&#x27;24&#x27;</span>, <span class="hljs-string">&#x27;test5@itcast.cn&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h2 id="1-2-mybatis实现查询User-–-实体类"><a href="#1-2-mybatis实现查询User-–-实体类" class="headerlink" title="1.2 mybatis实现查询User – 实体类"></a>1.2 mybatis实现查询User – 实体类</h2><h3 id="1-2-1-第一步，编写mybatis-config-xml文件："><a href="#1-2-1-第一步，编写mybatis-config-xml文件：" class="headerlink" title="1.2.1 第一步，编写mybatis-config.xml文件："></a>1.2.1 第一步，编写mybatis-config.xml文件：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-operator">&lt;</span>?xml version<span class="hljs-operator">=</span>&quot;1.0&quot; encoding<span class="hljs-operator">=</span>&quot;UTF-8&quot; ?<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">!</span>DOCTYPE configuration<br>PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;<br>&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>configuration<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>environments <span class="hljs-keyword">default</span><span class="hljs-operator">=</span>&quot;development&quot;<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>environment id<span class="hljs-operator">=</span>&quot;development&quot;<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>transactionManager type<span class="hljs-operator">=</span>&quot;JDBC&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>dataSource type<span class="hljs-operator">=</span>&quot;POOLED&quot;<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>property name<span class="hljs-operator">=</span>&quot;driver&quot; <span class="hljs-keyword">value</span><span class="hljs-operator">=</span>&quot;com.mysql.jdbc.Driver&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>property name<span class="hljs-operator">=</span>&quot;url&quot; <span class="hljs-keyword">value</span><span class="hljs-operator">=</span>&quot;jdbc:mysql://127.0.0.1:3306/mp?<br>useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;autoReconnect=true&amp;amp;allowMultiQuerie<br>s=true&amp;amp;useSSL=false&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>property name<span class="hljs-operator">=</span>&quot;username&quot; <span class="hljs-keyword">value</span><span class="hljs-operator">=</span>&quot;root&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>property name<span class="hljs-operator">=</span>&quot;password&quot; <span class="hljs-keyword">value</span><span class="hljs-operator">=</span>&quot;root&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>dataSource<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>environment<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>environments<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>mappers<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span>mapper resource<span class="hljs-operator">=</span>&quot;UserMapper.xml&quot;<span class="hljs-operator">/</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>mappers<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>configuration<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-2-第二步，编写User实体对象：（这里使用lombok进行了进化bean操作）"><a href="#1-2-2-第二步，编写User实体对象：（这里使用lombok进行了进化bean操作）" class="headerlink" title="1.2.2 第二步，编写User实体对象：（这里使用lombok进行了进化bean操作）"></a>1.2.2 第二步，编写User实体对象：（这里使用lombok进行了进化bean操作）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.itcast.mp.simple.pojo;<br><span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br><span class="hljs-keyword">import</span> lombok.Data;<br><span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> &#123;<br><span class="hljs-keyword">private</span> Long id;<br><span class="hljs-keyword">private</span> String userName;<br><span class="hljs-keyword">private</span> String password;<br><span class="hljs-keyword">private</span> String name;<br><span class="hljs-keyword">private</span> Integer age;<br><span class="hljs-keyword">private</span> String email;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-3-第三步，编写UserMapper接口："><a href="#1-2-3-第三步，编写UserMapper接口：" class="headerlink" title="1.2.3 第三步，编写UserMapper接口："></a>1.2.3 第三步，编写UserMapper接口：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.itcast.mp.simple.mapper;<br><span class="hljs-keyword">import</span> cn.itcast.mp.simple.pojo.User;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserMapper</span> &#123;<br>List&lt;User&gt; <span class="hljs-title function_">findAll</span><span class="hljs-params">()</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-4-第四步，编写UserMapper-xml文件："><a href="#1-2-4-第四步，编写UserMapper-xml文件：" class="headerlink" title="1.2.4 第四步，编写UserMapper.xml文件："></a>1.2.4 第四步，编写UserMapper.xml文件：</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">&lt;</span>?xml version<span class="hljs-operator">=</span>&quot;1.0&quot; encoding<span class="hljs-operator">=</span>&quot;UTF-8&quot; ?<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">!</span>DOCTYPE mapper<br>PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;<br>&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">!</span><span class="hljs-comment">--    映射文件xml的命名空间，就是写映射接口的路径--&gt;</span><br><span class="hljs-operator">&lt;</span>mapper namespace<span class="hljs-operator">=</span>&quot;cn.itcast.mp.simple.mapper.UserMapper&quot;<span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">!</span><span class="hljs-comment">--    这个id是接口中的方法， resultType是查询的实体类，类型--&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-keyword">select</span> id<span class="hljs-operator">=</span>&quot;findAll&quot; resultType<span class="hljs-operator">=</span>&quot;cn.itcast.mp.simple.pojo.User&quot;<span class="hljs-operator">&gt;</span><br>#         再这里写查询语句<br><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> tb_user<br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span><span class="hljs-keyword">select</span><span class="hljs-operator">&gt;</span><br><span class="hljs-operator">&lt;</span><span class="hljs-operator">/</span>mapper<span class="hljs-operator">&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-5-第五步，编写TestMybatis测试用例："><a href="#1-2-5-第五步，编写TestMybatis测试用例：" class="headerlink" title="1.2.5 第五步，编写TestMybatis测试用例："></a>1.2.5 第五步，编写TestMybatis测试用例：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java">    <span class="hljs-keyword">package</span> cn.itcast.mp.simple;<br>    <span class="hljs-keyword">import</span> cn.itcast.mp.simple.mapper.UserMapper;<br>    <span class="hljs-keyword">import</span> cn.itcast.mp.simple.pojo.User;<br>    <span class="hljs-keyword">import</span> org.apache.ibatis.io.Resources;<br>    <span class="hljs-keyword">import</span> org.apache.ibatis.session.SqlSession;<br>    <span class="hljs-keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;<br>    <span class="hljs-keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;<br>    <span class="hljs-keyword">import</span> org.junit.Test;<br>    <span class="hljs-keyword">import</span> java.io.InputStream;<br>    <span class="hljs-keyword">import</span> java.util.List;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestMybatis</span> &#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testUserList</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception&#123;<br>        <span class="hljs-comment">// 3. 指定一个mybatis_config配置文件</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">resource</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;mybatis-config.xml&quot;</span>;<br>        <span class="hljs-comment">// 2. 获取流（用mybatis中的包), 获取流文件是mybatis的配置文件</span><br>    <span class="hljs-type">InputStream</span> <span class="hljs-variable">inputStream</span> <span class="hljs-operator">=</span> Resources.getResourceAsStream(resource);<br>         <span class="hljs-comment">// 1. 先获取sqlSessionFactory对象，要new 一个SqlSessionFactoryBuilder()对象</span><br>        <span class="hljs-comment">// 然后使用其方法下的build方法，要获取一个输入流inputStream</span><br>    <span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">sqlSessionFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span><br>    <span class="hljs-title class_">SqlSessionFactoryBuilder</span>().build(inputStream);<br>     <span class="hljs-comment">// 4. 通过工厂对象可以获得获取sqlsession对象</span><br>    <span class="hljs-type">SqlSession</span> <span class="hljs-variable">sqlSession</span> <span class="hljs-operator">=</span> sqlSessionFactory.openSession();<br>     <span class="hljs-comment">// 5. 通过sqlsession对象可以拿到我们的映射接口</span><br>    <span class="hljs-type">UserMapper</span> <span class="hljs-variable">userMapper</span> <span class="hljs-operator">=</span> sqlSession.getMapper(UserMapper.class);<br>     <span class="hljs-comment">//6. 调用我们的映射接口，返回一个List集合（接口的返回类型就是集合）</span><br>    List&lt;User&gt; list = userMapper.findAll();<br>      <span class="hljs-comment">// 7. 遍历，并且输出该集合</span><br>    <span class="hljs-keyword">for</span> (User user : list) &#123;<br>    System.out.println(user);<br>		&#125;<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-6-测试结果："><a href="#1-2-6-测试结果：" class="headerlink" title="1.2.6 测试结果："></a>1.2.6 测试结果：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">[main] [cn.itcast.mp.simple.mapper.UserMapper.findAll]-[DEBUG] ==&gt; Parameters:<br>[main] [cn.itcast.mp.simple.mapper.UserMapper.findAll]-[DEBUG] &lt;== Total: <span class="hljs-number">5</span><br>User(id=<span class="hljs-number">1</span>, userName=<span class="hljs-literal">null</span>, password=<span class="hljs-number">123456</span>, name=张三, age=<span class="hljs-number">18</span>, email=test1<span class="hljs-meta">@itcast</span>.cn)<br>User(id=<span class="hljs-number">2</span>, userName=<span class="hljs-literal">null</span>, password=<span class="hljs-number">123456</span>, name=李四, age=<span class="hljs-number">20</span>, email=test2<span class="hljs-meta">@itcast</span>.cn)<br>User(id=<span class="hljs-number">3</span>, userName=<span class="hljs-literal">null</span>, password=<span class="hljs-number">123456</span>, name=王五, age=<span class="hljs-number">28</span>, email=test3<span class="hljs-meta">@itcast</span>.cn)<br>User(id=<span class="hljs-number">4</span>, userName=<span class="hljs-literal">null</span>, password=<span class="hljs-number">123456</span>, name=赵六, age=<span class="hljs-number">21</span>, email=test4<span class="hljs-meta">@itcast</span>.cn)<br>User(id=<span class="hljs-number">5</span>, userName=<span class="hljs-literal">null</span>, password=<span class="hljs-number">123456</span>, name=孙七, age=<span class="hljs-number">24</span>, email=test5<span class="hljs-meta">@itcast</span>.cn)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/mybatis/">#mybatis</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>mybatis + 配置文件基础使用</div>
+      <div>http://example.com/2022/07/19/mybatis-+-配置文件基础使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>flowersea</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月19日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/02/Maven%E9%AB%98%E7%BA%A7/" title="Maven高级笔记">
+                        <span class="hidden-mobile">Maven高级笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"uJ813FraAgdWfO9A0C4tCk8w-gzGzoHsz","appKey":"tGt6nPWqmrHkVie023eG0wbU","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
