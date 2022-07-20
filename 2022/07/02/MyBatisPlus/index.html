@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207191057542.jpg">
 <meta property="article:published_time" content="2022-07-01T17:46:00.000Z">
-<meta property="article:modified_time" content="2022-07-19T02:58:19.256Z">
+<meta property="article:modified_time" content="2022-07-19T13:00:41.050Z">
 <meta property="article:author" content="flowersea">
 <meta property="article:tag" content="MyBatisPlus">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
         
         
         
-          403 分钟
+          404 分钟
         
       </span>
     
@@ -824,6 +824,12 @@
 <h4 id="问题1-表字段与编码属性设计不同步"><a href="#问题1-表字段与编码属性设计不同步" class="headerlink" title="问题1:表字段与编码属性设计不同步"></a>问题1:表字段与编码属性设计不同步</h4><p>当表的列名和模型类的属性名发生不一致，就会导致数据封装不到模型对象，这个时候就需要其中一方做出修改，那如果前提是两边都不能改又该如何解决?</p>
 <p>MP给我们提供了一个注解<code>@TableField</code>,使用该注解可以实现模型类属性名和表的列名之间的映射关系</p>
 <p><img src="/../img/1631030550100.png" srcset="/img/loading.gif" lazyload alt="1631030550100"></p>
+<h5 id="注：如果是标准驼峰"><a href="#注：如果是标准驼峰" class="headerlink" title="注：如果是标准驼峰"></a>注：如果是标准驼峰</h5><ul>
+<li>​							– 实体类的属性名是userName，表中的字段名是username，则可以不用使用注解<code>@TableField</code>来说明，会自己做一个映射</li>
+</ul>
+<h5 id="如果不是标准驼峰："><a href="#如果不是标准驼峰：" class="headerlink" title="如果不是标准驼峰："></a>如果不是标准驼峰：</h5><ul>
+<li>​							– 实体类的属性名是userName，表中的字段名是user_name，则要使用注解实现属性名和表的列名之间的映射关系</li>
+</ul>
 <h4 id="问题2-编码中添加了数据库中未定义的属性"><a href="#问题2-编码中添加了数据库中未定义的属性" class="headerlink" title="问题2:编码中添加了数据库中未定义的属性"></a>问题2:编码中添加了数据库中未定义的属性</h4><p>当模型类中多了一个数据库表不存在的字段，就会导致生成的sql语句中在select的时候查询了数据库不存在的字段，程序运行就会报错，错误信息为:</p>
 <p>&#x3D;&#x3D;Unknown column ‘多出来的字段名称’ in ‘field list’&#x3D;&#x3D;</p>
 <p>具体的解决方案用到的还是<code>@TableField</code>注解，它有一个属性叫<code>exist</code>，设置该字段是否在数据库表中存在，如果设置为false则不存在，生成sql语句查询的时候，就不会再查询该字段了。</p>
