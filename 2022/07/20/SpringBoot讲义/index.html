@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207201107687.png">
 <meta property="article:published_time" content="2022-07-20T03:23:00.000Z">
-<meta property="article:modified_time" content="2022-07-23T03:55:19.109Z">
+<meta property="article:modified_time" content="2022-07-30T16:49:01.956Z">
 <meta property="article:author" content="flowersea">
 <meta property="article:tag" content="Springboot">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
         
         
         
-          1949 分钟
+          1950 分钟
         
       </span>
     
@@ -2180,6 +2180,7 @@
 <h4 id="YW-4-2-日志输出格式控制"><a href="#YW-4-2-日志输出格式控制" class="headerlink" title="YW-4-2.日志输出格式控制"></a>YW-4-2.日志输出格式控制</h4><p>​		日志已经能够记录了，但是目前记录的格式是SpringBoot给我们提供的，如果想自定义控制就需要自己设置了。先分析一下当前日志的记录格式。</p>
 <p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202207231148705.png" srcset="/img/loading.gif" lazyload alt="image-20211206123431222"></p>
 <p>​		对于单条日志信息来说，日期，触发位置，记录信息是最核心的信息。级别用于做筛选过滤，PID与线程名用于做精准分析。了解这些信息后就可以DIY日志格式了。本课程不做详细的研究，有兴趣的小伙伴可以学习相关的知识。下面给出课程中模拟的官方日志模板的书写格式，便于大家学习。</p>
+<p>注： <strong>%d是日期  %m是消息，%n是换行  clr是彩色， %p是日志级别，相当于是level</strong></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">logging:</span><br>	<span class="hljs-attr">pattern:</span><br>    	<span class="hljs-attr">console:</span> <span class="hljs-string">&quot;%d %clr(%p) --- [%16t] %clr(%-40.40c)&#123;cyan&#125; : %m %n&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>总结</strong></p>
@@ -2520,7 +2521,7 @@
 </ol>
 <h3 id="KF-3-4-数据层测试回滚"><a href="#KF-3-4-数据层测试回滚" class="headerlink" title="KF-3-4.数据层测试回滚"></a>KF-3-4.数据层测试回滚</h3><p>​		当前我们的测试程序可以完美的进行表现层、业务层、数据层接口对应的功能测试了，但是测试用例开发完成后，在打包的阶段由于test生命周期属于必须被运行的生命周期，如果跳过会给系统带来极高的安全隐患，所以测试用例必须执行。但是新的问题就呈现了，测试用例如果测试时产生了事务提交就会在测试过程中对数据库数据产生影响，进而产生垃圾数据。这个过程不是我们希望发生的，作为开发者测试用例该运行运行，但是过程中产生的数据不要在我的系统中留痕，这样该如何处理呢？</p>
 <p>​		springboot早就为开发者想到了这个问题，并且针对此问题给出了最简解决方案，在原始测试用例中添加注解@Transactional即可实现当前测试用例的事务不提交。当程序运行后，只要注解@Transactional出现的位置存在注解@SpringBootTest，springboot就会认为这是一个测试程序，无需提交事务，所以也就可以避免事务的提交。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-meta">@Transactional</span><br><span class="hljs-meta">@Rollback(true)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DaoTest</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> BookService bookService;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">testSave</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">Book</span> <span class="hljs-variable">book</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>();<br>        book.setName(<span class="hljs-string">&quot;springboot3&quot;</span>);<br>        book.setType(<span class="hljs-string">&quot;springboot3&quot;</span>);<br>        book.setDescription(<span class="hljs-string">&quot;springboot3&quot;</span>);<br><br>        bookService.save(book);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-meta">@Transactional</span> <span class="hljs-comment">// spring添加事务注解</span><br><span class="hljs-comment">//在原始测试用例中添加注解@Transactional即可实现当前测试用例的事务不提交</span><br><span class="hljs-comment">// 为true回滚（不提交），为false不回滚（提交事务）</span><br><span class="hljs-meta">@Rollback(value = true)</span> <span class="hljs-comment">// 添加事务回滚（默认true，也就是回滚到事务填的操作）写false是不回滚，提交</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DaoTest</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> BookService bookService;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">testSave</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">Book</span> <span class="hljs-variable">book</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Book</span>();<br>        book.setName(<span class="hljs-string">&quot;springboot3&quot;</span>);<br>        book.setType(<span class="hljs-string">&quot;springboot3&quot;</span>);<br>        book.setDescription(<span class="hljs-string">&quot;springboot3&quot;</span>);<br><br>        bookService.save(book);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>​		如果开发者想提交事务，也可以，再添加一个@RollBack的注解，设置回滚状态为false即可正常提交事务，是不是很方便？springboot在辅助开发者日常工作这一块展现出了惊人的能力，实在太贴心了。</p>
 <p><strong>总结</strong></p>
