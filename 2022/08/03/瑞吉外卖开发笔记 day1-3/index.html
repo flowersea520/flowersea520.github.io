@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://typora011.oss-cn-guangzhou.aliyuncs.com/202208030026538.jpg">
 <meta property="article:published_time" content="2022-08-02T16:53:00.000Z">
-<meta property="article:modified_time" content="2022-08-10T01:56:51.629Z">
+<meta property="article:modified_time" content="2022-08-10T05:21:27.416Z">
 <meta property="article:author" content="flowersea">
 <meta property="article:tag" content="麦吉项目">
 <meta name="twitter:card" content="summary_large_image">
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          82k 字
+          93k 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          684 分钟
+          774 分钟
         
       </span>
     
@@ -1039,6 +1039,567 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@PutMapping</span><br><span class="hljs-keyword">public</span> R&lt;String&gt; <span class="hljs-title function_">send</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Orders orders)</span>&#123;<br>    <span class="hljs-type">Long</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> orders.getId();<br>    <span class="hljs-type">Integer</span> <span class="hljs-variable">status</span> <span class="hljs-operator">=</span> orders.getStatus();<br>    LambdaQueryWrapper&lt;Orders&gt; queryWrapper=<span class="hljs-keyword">new</span> <span class="hljs-title class_">LambdaQueryWrapper</span>&lt;&gt;();<br>    queryWrapper.eq(Orders::getId,id);<br>    <span class="hljs-type">Orders</span> <span class="hljs-variable">one</span> <span class="hljs-operator">=</span> orderService.getOne(queryWrapper);<br>    one.setStatus(status);<br>    orderService.updateById(one);<br>    <span class="hljs-keyword">return</span> R.success(<span class="hljs-string">&quot;派送成功&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/202208080354171.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p><strong>为什么要学Linux ?</strong></p>
+<ul>
+<li>企业用人要求</li>
+<li>个人发展要求</li>
+</ul>
+<p><strong>学习后能干什么？</strong><br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164500769-412957756.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h2 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h2><h3 id="不同应用领域的主流操作系统"><a href="#不同应用领域的主流操作系统" class="headerlink" title="不同应用领域的主流操作系统"></a>不同应用领域的主流操作系统</h3><ul>
+<li>桌面操作系统<ul>
+<li>Windows （用户数量最多)</li>
+<li>Mac OS（操作体验好，办公人士首选)</li>
+<li>Linux（用户数量少)</li>
+</ul>
+</li>
+<li>服务器操作系统<ul>
+<li>UNIX（安全、稳定、付费)</li>
+<li>Linux（安全、稳定、免费、占有率高)</li>
+<li>Windows Server (付费、占有率低)</li>
+</ul>
+</li>
+<li>移动设备操作系统<ul>
+<li>Android (基于Linux 、开源，主要用于智能手机、平板电脑和智能电视)</li>
+<li>ios（苹果公司开发、不开源，用于苹果公司的产品，例如: iPhone、iPad )</li>
+</ul>
+</li>
+<li>嵌入式操作系统<ul>
+<li>Linux（机顶盒、路由器、交换机)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux发展历史"><a href="#Linux发展历史" class="headerlink" title="Linux发展历史"></a>Linux发展历史</h3><p>Linux系统历史</p>
+<ul>
+<li>时间:1991年</li>
+<li>地点:芬兰赫尔辛基大学</li>
+<li>人物:Linus Torvalds ( 21岁)</li>
+<li>语言:C语言、汇编语言</li>
+<li>logo:企鹅</li>
+<li>特点:免费、开源、多用户、多任务</li>
+</ul>
+<h3 id="Linux系统版本"><a href="#Linux系统版本" class="headerlink" title="Linux系统版本"></a>Linux系统版本</h3><p>Linux系统分为内核版和发行版</p>
+<ul>
+<li>内核版<ul>
+<li>由Linus Torvalds及其团队开发、维护</li>
+<li>免费、开源</li>
+<li>负责控制硬件</li>
+</ul>
+</li>
+<li>发行版<ul>
+<li>基于Linux内核版进行扩展</li>
+<li>由各个Linux厂商开发、维护</li>
+<li>有收费版本和免费版本</li>
+</ul>
+</li>
+</ul>
+<p><strong>Linux系统发行版</strong>:</p>
+<ul>
+<li>ubuntu:以桌面应用为主·</li>
+<li>RedHat:应用最广泛、收费</li>
+<li>CentOs: RedHat的社区版、免费·</li>
+<li>opensuSE:对个人完全免费、图形界面华丽</li>
+<li>Fedora:功能完备、快速更新、免费</li>
+<li>红旗Linux:北京中科红旗软件技术有限公司开发<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164510201-1893673796.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+</ul>
+<h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><h3 id="安装方式介绍"><a href="#安装方式介绍" class="headerlink" title="安装方式介绍"></a>安装方式介绍</h3><p>Linux系统的安装方式</p>
+<ul>
+<li>物理机安装:直接将操作系统安装到服务器硬件上</li>
+<li>虚拟机安装:通过虚拟机软件安装</li>
+</ul>
+<p><strong>虚拟机</strong>( Virtual Machine)指通过<strong>软件</strong>模拟的具有完整硬件系统功能、运行在完全隔离环境中的完整计算机系统。</p>
+<p>常用虚拟机软件</p>
+<ul>
+<li>VMware</li>
+<li>VirtualBox</li>
+<li>VMLite workStation</li>
+<li>Qemu</li>
+<li>HopeddotVos</li>
+</ul>
+<h3 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h3><p><strong>安装方式-安装VMWare</strong></p>
+<p>直接双击运行资料中的VMware安装程序，根据提示完成安装即可</p>
+<p><strong>安装CentOS镜像</strong></p>
+<p>使用资料中提供的CentOS镜像文件来完成Linux系统的安装</p>
+<h3 id="网卡设置"><a href="#网卡设置" class="headerlink" title="网卡设置"></a>网卡设置</h3><p>由于启动服务器时未加载网卡，导致IP地址初始化失败</p>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164517145-1413567992.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>修改网络初始化配置，设定网卡在系统启动时初始化<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164525095-1179631425.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h3 id="安装SSH连接工具"><a href="#安装SSH连接工具" class="headerlink" title="安装SSH连接工具"></a>安装SSH连接工具</h3><p>SSH ( Secure Shell)，建立在应用层基础上的安全协议</p>
+<p>常用的SSH连接工具</p>
+<ul>
+<li>putty</li>
+<li>secureCRT</li>
+<li>xshell</li>
+<li>finalshell</li>
+</ul>
+<p>通过SSH连接工具就可以实现从本地连接到远程的Linux服务器</p>
+<h3 id="Linux和windows目录结构对比"><a href="#Linux和windows目录结构对比" class="headerlink" title="Linux和windows目录结构对比"></a>Linux和windows目录结构对比</h3><p>Linux系统中的目录</p>
+<ul>
+<li>&#x2F;是所有目录的顶点</li>
+<li>目录结构像一颗倒挂的树<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164532669-2029309901.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+</ul>
+<h3 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h3><ul>
+<li>bin存放二进制可执行文件</li>
+<li>boot存放系统引导时使用的各种文件</li>
+<li>dev存放设备文件</li>
+<li>etc存放系统配置文件</li>
+<li>home存放系统用户的文件</li>
+<li>lib存放程序运行所需的共享库和内核模块</li>
+<li>opt额外安装的可选应用程序包所放置的位置</li>
+<li>root超级用户目录</li>
+<li>sbin存放二进制可执行文件，只有root用户才能访问</li>
+<li>tmp存放临时文件</li>
+<li>usr存放系统应用程序</li>
+<li>var存放运行时需要改变数据的文件，例如日志文件<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164538098-689217035.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+</ul>
+<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><h3 id="Linux命令初体验"><a href="#Linux命令初体验" class="headerlink" title="Linux命令初体验"></a>Linux命令初体验</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>对应英文</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ls</td>
+<td>list</td>
+<td>查看当前目录下的内容</td>
+</tr>
+<tr>
+<td>2</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>查看当前所在目录</td>
+</tr>
+<tr>
+<td>3</td>
+<td>cd [目录名]</td>
+<td>change directory</td>
+<td>切换目录</td>
+</tr>
+<tr>
+<td>4</td>
+<td>touch [文件名]</td>
+<td>touch</td>
+<td>如果文件不存在，新建文件</td>
+</tr>
+<tr>
+<td>5</td>
+<td>mkdir [目录名]</td>
+<td>make directory</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>6</td>
+<td>rm [文件名]</td>
+<td>remove</td>
+<td>删除指定文件</td>
+</tr>
+</tbody></table>
+<p><strong>使用技巧</strong></p>
+<ul>
+<li>Tab键自动补全</li>
+<li>连续两次Tab键，给出操作提示</li>
+<li>使用上下箭头快速调出曾经使用过的命令</li>
+<li>使用clear命令或者Ctrl+l快捷键实现清屏</li>
+</ul>
+<p><strong>命令格式</strong></p>
+<p>command 【-options】【parameter】</p>
+<p>说明:</p>
+<ul>
+<li>command:命令名</li>
+<li>【-options】:选项，可用来对命令进行控制，也可以省略</li>
+<li>【parameter】:传给命令的参数，可以是零个、一个或者多个</li>
+</ul>
+<p>注意:</p>
+<p>[]代表可选</p>
+<p>命令名、选项、参数之间有空格进行分隔</p>
+<h3 id="文件目录操作命令"><a href="#文件目录操作命令" class="headerlink" title="文件目录操作命令"></a>文件目录操作命令</h3><h4 id="文件目录操作命令ls"><a href="#文件目录操作命令ls" class="headerlink" title="文件目录操作命令ls"></a>文件目录操作命令<strong>ls</strong></h4><p>作用:显示指定目录下的内容</p>
+<p>语法:ls [-al] [dir]</p>
+<p>说明:</p>
+<ul>
+<li>-a显示所有文件及目录(.开头的隐藏文件也会列出)</li>
+<li>-l除文件名称外，同时将文件型态(d表示目录，-表示文件)、权限、拥有者、文件大小等信息详细列出</li>
+</ul>
+<p>注意:<br>由于我们使用ls命令时经常需要加入-l选项，所以Linux为ls -l命令提供了一种简写方式，即ll</p>
+<h4 id="文件目录操作命令cd"><a href="#文件目录操作命令cd" class="headerlink" title="文件目录操作命令cd"></a>文件目录操作命令<strong>cd</strong></h4><p>作用:用于切换当前工作目录，即进入指定目录</p>
+<p>语法:cd [dirName]</p>
+<p>特殊说明:</p>
+<ul>
+<li>~表示用户的home目录</li>
+<li>.表示目前所在的目录</li>
+<li>..表示目前目录位置的上级目录</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>cd ..<br>切换到当前目录的上级目录</li>
+<li>cd ~<br>切换到用户的home目录</li>
+<li>cd &#x2F;usr&#x2F;local 切换到&#x2F;usr&#x2F;local目录</li>
+</ul>
+<h4 id="文件目录操作命令cat"><a href="#文件目录操作命令cat" class="headerlink" title="文件目录操作命令cat"></a>文件目录操作命令<strong>cat</strong></h4><p>作用:用于显示文件内容</p>
+<p>语法: cat [-n] fileName</p>
+<p>说明:</p>
+<ul>
+<li>-n :由1开始对所有输出的行数编号</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>cat &#x2F;etc&#x2F;profile<br>查看&#x2F;etc目录下的profile文件内容</li>
+</ul>
+<h4 id="文件目录操作命令more"><a href="#文件目录操作命令more" class="headerlink" title="文件目录操作命令more"></a>文件目录操作命令<strong>more</strong></h4><p>作用:以分页的形式显示文件内容</p>
+<p>语法: more fileName</p>
+<p>操作说明:</p>
+<ul>
+<li>回车键<br>向下滚动一行</li>
+<li>空格键<br>向下滚动一屏</li>
+<li>b<br>返回上一屏</li>
+<li>q或者Ctrl+C<br>退出more</li>
+</ul>
+<p>举例:</p>
+<p>more &#x2F;etc&#x2F;profile<br>以分页方式显示&#x2F;etc目录下的profile文件内容</p>
+<h4 id="文件目录操作命令tail"><a href="#文件目录操作命令tail" class="headerlink" title="文件目录操作命令tail"></a>文件目录操作命令<strong>tail</strong></h4><p>作用:查看文件末尾的内容</p>
+<p>语法:tail [-f] fileName</p>
+<p>说明:</p>
+<ul>
+<li>-f :动态读取文件末尾内容并显示，通常用于日志文件的内容输出</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>tail &#x2F;etc&#x2F;profile<br>显示&#x2F;etc目录下的profile文件末尾10行的内容</li>
+<li>tail -20 &#x2F;etc&#x2F;profile<br>显示&#x2F;etc目录下的profile文件末尾20行的内容</li>
+<li>tail -f &#x2F;itcast&#x2F;my.log<br>动态读取&#x2F;itcast目录下的my.log文件末尾内容并显示</li>
+</ul>
+<h4 id="文件目录操作命令mkdir"><a href="#文件目录操作命令mkdir" class="headerlink" title="文件目录操作命令mkdir"></a>文件目录操作命令<strong>mkdir</strong></h4><p>作用:创建目录</p>
+<p>语法:mkdir [-p] dirName</p>
+<p>说明:</p>
+<ul>
+<li>-p︰确保目录名称存在，不存在的就创建一个。通过此选项，可以实现多层目录同时创建</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>mkdir itcast　在当前目录下，建立一个名为itcast的子目录</li>
+<li>mkdir-p itcast&#x2F;test　在工作目录下的itcast目录中建立一个名为test的子目录，若itcast目录不存在，则建立一个</li>
+</ul>
+<h4 id="文件目录操作命令rmdir"><a href="#文件目录操作命令rmdir" class="headerlink" title="文件目录操作命令rmdir"></a>文件目录操作命令rmdir</h4><p>作用:删除空目录</p>
+<p>语法:rmdir [-p] dirName</p>
+<p>说明:</p>
+<ul>
+<li>-p:当子目录被删除后使父目录为空目录的话，则一并删除</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>rmdir itcast　删除名为itcast的空目录</li>
+<li>rmdir-p itcast&#x2F;test　删除itcast目录中名为test的子目录，若test目录删除后itcast目录变为空目录，则也被删除</li>
+<li>rmdir itcast*　删除名称以itcast开始的空目录</li>
+</ul>
+<h4 id="文件目录操作命令rm"><a href="#文件目录操作命令rm" class="headerlink" title="文件目录操作命令rm"></a>文件目录操作命令rm</h4><p>作用:删除文件或者目录</p>
+<p>语法:rm[-rf] name</p>
+<p>说明:</p>
+<ul>
+<li>-r:将目录及目录中所有文件（目录）逐一删除，即递归删除</li>
+<li>-f:无需确认，直接删除</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>rm -r itcast&#x2F;删除名为itcast的目录和目录中所有文件，删除前需确认</li>
+<li>rm -rf itcast&#x2F;无需确认，直接删除名为itcast的目录和目录中所有文件</li>
+<li>rm -f hello.txt无需确认，直接删除hello.txt文件</li>
+</ul>
+<h3 id="拷贝移动命令"><a href="#拷贝移动命令" class="headerlink" title="拷贝移动命令"></a>拷贝移动命令</h3><h4 id="拷贝移动命令cp"><a href="#拷贝移动命令cp" class="headerlink" title="拷贝移动命令cp"></a>拷贝移动命令cp</h4><p>作用:用于复制文件或目录语法:cp [-r] source dest</p>
+<p>说明:</p>
+<ul>
+<li>-r:如果复制的是目录需要使用此选项，此时将复制该目录下所有的子目录和文件</li>
+</ul>
+<p>举例:</p>
+<ul>
+<li>cp hello.txt itcast&#x2F;<br>将hello.txt复制到itcast目录中</li>
+<li>cp hello.txt . &#x2F; hi.txt<br>将hello.txt复制到当前目录，并改名为hi.txt</li>
+<li>cp -r itcast&#x2F; .&#x2F;itheimal将itcast目录和目录下所有文件复制到itheima目录下</li>
+<li>cp -r itcast&#x2F;* .&#x2F; itheima&#x2F;将itcast目录下所有文件复制到itheima目录下</li>
+</ul>
+<h4 id="拷贝移动命令mv"><a href="#拷贝移动命令mv" class="headerlink" title="拷贝移动命令mv"></a>拷贝移动命令mv</h4><p>作用:为文件或目录改名、或将文件或目录移动到其它位置</p>
+<p>语法: mv source dest</p>
+<p>举例:</p>
+<ul>
+<li>mv hello.txt hi.txt<br>将hello.txt改名为hi.txt</li>
+<li>mv hi.txt itheima&#x2F;<br>将文件hi.txt移动到itheima目录中</li>
+<li>mv hi.txt itheima&#x2F; hello.txt将hi.txt移动到itheima目录中，并改名为hello.txt</li>
+<li>mv itcast&#x2F; itheima&#x2F;如果itheima目录不存在，将itcast目录改名为itheima</li>
+<li>mv itcast&#x2F; itheima&#x2F;<br>如果itheima目录存在，将itcast目录移动到itheima目录中</li>
+</ul>
+<h3 id="打包压缩命令tar"><a href="#打包压缩命令tar" class="headerlink" title="打包压缩命令tar"></a>打包压缩命令tar</h3><p>作用:对文件进行打包、解包、压缩、解压</p>
+<p>语法: tar [-zcxvf] fileName [files]</p>
+<p>包文件后缀为.tar表示只是完成了打包，并没有压缩</p>
+<p>包文件后缀为.tar.gz表示打包的同时还进行了压缩</p>
+<p>说明:</p>
+<ul>
+<li>-z∶ z代表的是gzip，通过gzip命令处理文件，gzip可以对文件压缩或者解压</li>
+<li>-c: c代表的是create，即创建新的包文件</li>
+<li>-x: x代表的是extract，实现从包文件中还原文件</li>
+<li>-v: v代表的是verbose，显示命令的执行过程</li>
+<li>-f: f代表的是file，用于指定包文件的名称</li>
+</ul>
+<h3 id="文本编辑命令vi-x2F-vim"><a href="#文本编辑命令vi-x2F-vim" class="headerlink" title="文本编辑命令vi&#x2F;vim"></a>文本编辑命令vi&#x2F;vim</h3><p>作用: vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</p>
+<p>语法: vi fileName</p>
+<p>说明:</p>
+<p>1、 vim是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行着色，方便我们对文件进行编辑处理，所以实际工作中vim更加常用。</p>
+<p>2、要使用vim命令，需要我们自己完成安装。可以使用该命令来完成安装:yum install vim</p>
+<h4 id="文本编辑命令vim"><a href="#文本编辑命令vim" class="headerlink" title="文本编辑命令vim"></a>文本编辑命令vim</h4><p>作用:对文件内容进行编辑，vim其实就是一个文本编辑器</p>
+<p>语法:vim fileName</p>
+<p>说明:</p>
+<p>1、在使用vim命令编辑文件时，如果指定的文件存在则直接打开此文件。如果指定的文件不存在则新建文件。</p>
+<p>2、vim在进行文本编辑时共分为三种模式，分别是命令模式(Command mode)，插入模式（Insert mode)和底行模式(Last line mode)。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式。</p>
+<p>针对vim中的三种模式说明如下:</p>
+<p>1、命令模式</p>
+<ul>
+<li>命令模式下可以查看文件内容、移动光标（上下左右箭头、gg、G)</li>
+<li>通过vim命令打开文件后，默认进入命令模式</li>
+<li>另外两种模式需要首先进入命令模式，才能进入彼此</li>
+</ul>
+<p>2、插入模式</p>
+<ul>
+<li>插入模式下可以对文件内容进行编辑</li>
+<li>在命令模式下按下[i,a,o]任意一个，可以进入插入模式。进入插入模式后，下方会出现【insert】字样</li>
+<li>在插入模式下按下ESC键，回到命令模式</li>
+</ul>
+<p>3、底行模式</p>
+<ul>
+<li>底行模式下可以通过命令对文件内容进行查找、显示行号、退出等操作</li>
+<li>在命令模式下按下[:,&#x2F;]任意一个，可以进入底行模式</li>
+<li>通过&#x2F;方式进入底行模式后，可以对文件内容进行查找</li>
+<li>通过:方式进入底行模式后，可以输入wq（保存并退出）、q!(不保存退出） 、 set nu(显示行号)</li>
+</ul>
+<h3 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h3><h4 id="查找命令find"><a href="#查找命令find" class="headerlink" title="查找命令find"></a>查找命令find</h4><p>作用:在指定目录下查找文件</p>
+<p>语法:find dirName -option fileName</p>
+<p>举例:</p>
+<ul>
+<li>find . -name “*.java”<br>在当前目录及其子目录下查找.java结尾文件</li>
+<li>find &#x2F;itcast -name “*.java”<br>在&#x2F;itcast目录及其子目录下查找.java结尾的文件</li>
+</ul>
+<h4 id="查找命令grep"><a href="#查找命令grep" class="headerlink" title="查找命令grep"></a>查找命令grep</h4><p>作用:从指定文件中查找指定的文本内容</p>
+<p>语法: grep word fileName</p>
+<p>举例:</p>
+<ul>
+<li>grep Hello Helloworld.java<br>查找Helloworld.java文件中出现的Hello字符串的位置</li>
+<li>grep hello *.java<br>查找当前目录中所有.java结尾的文件中包含hello字符串的位置</li>
+</ul>
+<h2 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h2><h3 id="软件安装方式"><a href="#软件安装方式" class="headerlink" title="软件安装方式"></a>软件安装方式</h3><ul>
+<li>二进制发布包安装<ul>
+<li>软件已经针对具体平台编译打包发布，只要解压，修改配置即可</li>
+</ul>
+</li>
+<li>rpm安装<ul>
+<li>软件已经按照redhat的包管理规范进行打包，使用rpm命令进行安装，不能自行解决库依赖问题</li>
+</ul>
+</li>
+<li>yum安装<ul>
+<li>一种在线软件安装方式，本质上还是rpm安装，自动下载安装包并安装，安装过程中自动解决库依赖问题</li>
+</ul>
+</li>
+<li>源码编译安装<ul>
+<li>软件以源码工程的形式发布，需要自己编译打包</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h3><p>操作步骤:</p>
+<p>1、使用FinalShell自带的上传工具将jdk的二进制发布包上传到Linux jdk-8u171-linux-×64.tar.gz</p>
+<p>2、解压安装包，命令为tar -zxvf jdk-8u171-linux-x64.tar.gz -C&#x2F;usr&#x2F;local</p>
+<p>3、配置环境变量，使用vim命令修改&#x2F;etc&#x2F;profile文件，在文件末尾加入如下配置</p>
+<ul>
+<li>JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;jdk1.8.0_171</li>
+<li>PATH&#x3D;$JAVA_HOME&#x2F;bin :$PATH</li>
+</ul>
+<p>4、重新加载profile文件，使更改的配置立即生效，命令为source &#x2F;etc&#x2F;profile</p>
+<p>5、检查安装是否成功，命令为java -version</p>
+<h3 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h3><h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤:"></a>操作步骤:</h4><p>1、使用FinalShell自带的上传工具将Tomcat的二进制发布包上传到Linuxapache-tomcat-7.0.57.tar.gz</p>
+<p>2、解压安装包，命令为tar -zxvf apache-tomcat-7.0.57.tar.gz -C&#x2F;usr&#x2F;local</p>
+<p>3、进入Tomcat的bin目录启动服务，命令为sh startup.sh或者.&#x2F;startup.sh</p>
+<h4 id="验证Tomcat启动是否成功，有多种方式"><a href="#验证Tomcat启动是否成功，有多种方式" class="headerlink" title="验证Tomcat启动是否成功，有多种方式:"></a>验证Tomcat启动是否成功，有多种方式:</h4><ul>
+<li><p>查看启动日志</p>
+<p>more &#x2F;usr&#x2F;local&#x2F;apache-tomcat-7.0.57&#x2F;logs&#x2F;catalina.out</p>
+<p>tail -50 &#x2F;usr&#x2F;local&#x2F;apache-tomcat-7.0.57&#x2F;logs&#x2F;catalina.out</p>
+</li>
+<li><p>查看进程 ps -ef | grep tomcat<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164559036-587234087.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+</li>
+</ul>
+<p><strong>注意:</strong></p>
+<ul>
+<li>ps命令是linux下非常强大的进程查看命令，通过ps -ef可以查看当前运行的所有进程的详细信息</li>
+<li>“|”在Linux中称为管道符，可以将前一个命令的结果输出给后一个命令作为输入</li>
+<li>使用ps命令查看进程时，经常配合管道符和查找命令grep一起使用，来查看特定进程</li>
+</ul>
+<h4 id="防火墙操作"><a href="#防火墙操作" class="headerlink" title="防火墙操作:"></a>防火墙操作:</h4><ul>
+<li>查看防火墙状态(systemctl status firewalld、firewall-cmd –state)</li>
+<li>暂时关闭防火墙(systemctl stop firewalld)</li>
+<li>永久关闭防火墙(systemctl disable firewalld)</li>
+<li>开启防火墙(systemctl start firewalld)</li>
+<li>开放指定端口(firewall-cmd –zone&#x3D;public –add-port&#x3D;8080&#x2F;tcp –permanent)</li>
+<li>关闭指定端口(firewall-cmd –zone&#x3D;public –remove-port&#x3D;8080&#x2F;tcp –permanent)</li>
+<li>立即生效(firewall-cmd –reload)</li>
+<li>查看开放的端口(firewall-cmd –zone&#x3D;public –list-ports)</li>
+</ul>
+<p><strong>注意:</strong></p>
+<p>1、systemctl是管理Linux中服务的命令，可以对服务进行启动、停止、重启、查看状态等操作</p>
+<p>2、firewall-cmd是Linux中专门用于控制防火墙的命令</p>
+<p>3、为了保证系统安全，服务器的防火墙不建议关闭</p>
+<h4 id="停止Tomcat服务的方式"><a href="#停止Tomcat服务的方式" class="headerlink" title="停止Tomcat服务的方式:"></a>停止Tomcat服务的方式:</h4><ul>
+<li><p>运行Tomcat的bin目录中提供的停止服务的脚本文件<code>shutdown.sh</code></p>
+<p>sh shutdown.sh</p>
+<p>.&#x2F;shutdown.sh</p>
+</li>
+<li><p>结束Tomcat进程<br>查看Tomcat进程，获得进程id<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164615590-1183764675.png" srcset="/img/loading.gif" lazyload alt="image"><br>执行命令结束进程<strong>kill -9 7742</strong></p>
+</li>
+</ul>
+<p><strong>注意:</strong><br>kill命令是Linux提供的用于结束进程的命令，-9表示强制结束</p>
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>1、检测当前系统中是否安装MySQL数据库</p>
+<ul>
+<li>rpm -qa<br>查询当前系统中安装的所有软件</li>
+<li>rpm -qa l grep mysql<br>查询当前系统中安装的名称带mysql的软件</li>
+<li>rpm -qa l grep mariadb<br>查询当前系统中安装的名称带mariadb的软件<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164632289-1107734166.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+</ul>
+<p>RPM（ Red-Hat Package Manager ）RPM软件包管理器，是红帽Linux用于管理和安装软件的工具</p>
+<p><strong>注意</strong>：如果当前系统中已经安装有MySQL数据库，安装将失败。CentoS7自带mariadb，与My5QL数据库冲突</p>
+<p>2、卸载已经安装的冲突软件</p>
+<ul>
+<li>rpm -e –nodeps 软件名称 　　　　卸载软件</li>
+<li>rpm -e –nodeps mariadb-libs-5.5.60-1.el7_5.x86_64</li>
+</ul>
+<p>3、将资料中提供的MySQL安装包上传到Linux并解压</p>
+<ul>
+<li>mkdir &#x2F;usr&#x2F;local&#x2F;mysql</li>
+<li>tar -zxvf mysql-5.7.25-1.el7.x86_64.rpm-bundle.tar.gz -C &#x2F;usr&#x2F;local&#x2F;mysql</li>
+</ul>
+<p>4、按照顺序安装rpm软件包</p>
+<ul>
+<li><p>rpm -ivh mysql-community-common-5.7.25-1.el7.x86_64.rpm</p>
+</li>
+<li><p>rpm -ivh mysql-community-libs-5.7.25-1.el7.x86_64.rpm</p>
+</li>
+<li><p>rpm -ivh mysql-community-devel-5.7.25-1.el7.x86_64.rpm</p>
+</li>
+<li><p>rpm -ivh mysql-community-libs-compat-5.7.25-1.el7.x86_64.rpm</p>
+</li>
+<li><p>rpm -ivh mysql-community-client-5.7.25-1.el7.x86_64.rpm</p>
+</li>
+<li><p>yum install libaio</p>
+</li>
+<li><p>yum install net-tools</p>
+</li>
+<li><p>rpm -ivh mysql-community-server-5.7.25-1.el7.x86_64.rpm</p>
+<p>说明1:安装过程中提示缺少net-tools依赖，使用yum安装</p>
+<p>说明2:可以通过指令升级现有软件及系统内核</p>
+</li>
+<li><p>yum update</p>
+</li>
+</ul>
+<p>5、启动mysql</p>
+<ul>
+<li>systemctl status mysqld<br>查看mysql服务状态</li>
+<li>systemctl start mysqld<br>启动mysql服务<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164641114-1683153309.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+</ul>
+<p>说明:可以设置开机时启动mysql服务，避免每次开机启动mysql</p>
+<ul>
+<li>systemctl enable mysqld<br>开机启动mysql服务</li>
+<li>netstat -tunlp<br>查看已经启动的服务</li>
+<li>netstat -tunlp | grep mysql</li>
+<li>ps -ef | grep mysql<br>查看mysql进程</li>
+</ul>
+<p>6、登录MySQL数据库，查阅临时密码</p>
+<ul>
+<li>cat &#x2F;var&#x2F;log&#x2F;mysqld.log<br>查看文件内容</li>
+<li>cat &#x2F;var&#x2F;log&#x2F;mysqld.log l grep password<br>查看文件内容中包含password的行信息</li>
+</ul>
+<p>7、登录MySQL，修改密码，开放访问权限</p>
+<ul>
+<li>mysql -urpot -p<br>登录mysql（使用临时密码登录)</li>
+</ul>
+<p>修改密码</p>
+<ul>
+<li>set global validate_password_length&#x3D;4;<br>设置密码长度最低位数</li>
+<li>set global validate_password_policy&#x3D;LOW;<br>设置密码安全等级低，便于密码可以修改成root</li>
+<li>set password &#x3D; password(‘root’);<br>设置密码为root</li>
+</ul>
+<p>开启访问权限</p>
+<ul>
+<li><p>grant all on <em>.</em> to ‘root‘@’%’ identified by ‘root’;</p>
+<p>flush privileges;</p>
+</li>
+</ul>
+<p>8、测试Mysql数据库是否正常工作</p>
+<ul>
+<li>showdatabase;</li>
+</ul>
+<h3 id="安装lrzsz"><a href="#安装lrzsz" class="headerlink" title="安装lrzsz"></a>安装lrzsz</h3><p><strong>操作步骤:</strong></p>
+<p>1、搜索lrzsz安装包，命令为 <strong>yum list lrzsz</strong></p>
+<p>2、使用yum命令在线安装，命令为<strong>yum install lrzsz.x86_64</strong></p>
+<p><strong>注意：</strong> Yum(全称为Yellow dog Updater, Modified)是一个在Fedora和RedHat以及CentoS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。</p>
+<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><h3 id="手工部署项目"><a href="#手工部署项目" class="headerlink" title="手工部署项目"></a>手工部署项目</h3><p>一、在IDEA中开发SpringBoot项目并打成jar包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>pom文件必须加入上面代码</p>
+<p>二、将jar包上传到Linux服务器</p>
+<ul>
+<li>mkdir &#x2F;usr&#x2F;local&#x2F;app创建目录，将项目jar包放到此目录</li>
+</ul>
+<p>三、启动Spring程序<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164657090-508266715.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164651066-1125429480.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>四、检查防火墙，确保8080端口对外开放，访问SpringBoot项目</p>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164701736-1278145242.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>五、改为后台运行SpringBoot程序，并将日志输出到日志文件目前程序运行的问题</p>
+<ul>
+<li>线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</li>
+<li>线上程序不会将日志输出到控制台，而是输出到日志文件，方便运维查阅信息</li>
+</ul>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164708361-1366414462.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>六、停止SpringBoot程序<br><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164714373-1729045522.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h3 id="通过Shell脚本自动部署项目"><a href="#通过Shell脚本自动部署项目" class="headerlink" title="通过Shell脚本自动部署项目"></a>通过Shell脚本自动部署项目</h3><p>操作步骤:</p>
+<ul>
+<li>1、在Linux中安装Git</li>
+<li>2、使用Git克隆代码</li>
+<li>3、在Linux中安装maven</li>
+<li>4、编写Shell脚本（拉取代码、编译、打包、启动）</li>
+<li>5、为用户授予执行Shell脚本的权限</li>
+<li>6、执行Shell脚本</li>
+</ul>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164722000-1572884584.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h4 id="1、在Linux中安装Git"><a href="#1、在Linux中安装Git" class="headerlink" title="1、在Linux中安装Git"></a>1、在Linux中安装Git</h4><ul>
+<li>yum list git<br>列出git安装包</li>
+<li>yum install git<br>在线安装git</li>
+</ul>
+<h4 id="2、使用Git克隆代码"><a href="#2、使用Git克隆代码" class="headerlink" title="2、使用Git克隆代码"></a>2、使用Git克隆代码</h4><ul>
+<li>cd &#x2F;usr&#x2F;local&#x2F;</li>
+<li>git clone <a target="_blank" rel="noopener" href="https://github.com/SummerW1nd/helloworld.git">https://github.com/SummerW1nd/helloworld.git</a></li>
+</ul>
+<h4 id="3、在Linux中安装maven"><a href="#3、在Linux中安装maven" class="headerlink" title="3、在Linux中安装maven"></a>3、在Linux中安装maven</h4><p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164728977-1234910859.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h4 id="4、将资料中提供的Shell脚本文件复制到Linux-bootStart-sh"><a href="#4、将资料中提供的Shell脚本文件复制到Linux-bootStart-sh" class="headerlink" title="4、将资料中提供的Shell脚本文件复制到Linux (bootStart.sh)"></a>4、将资料中提供的Shell脚本文件复制到Linux (bootStart.sh)</h4><ul>
+<li>Shell脚本(shell script)，是一种Linux系统中的脚本程序。</li>
+<li>使用Shell脚本编程跟JavaScript、Java编程一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了.</li>
+<li>对于Shell脚本编写不作为本课程重点内容，直接使用课程资料中提供的脚本文件bootStart.sh即可。</li>
+</ul>
+<h4 id="五、为用户授权"><a href="#五、为用户授权" class="headerlink" title="五、为用户授权"></a>五、为用户授权</h4><p>chmod（英文全拼: change mode）命令是控制用户对文件的权限的命令</p>
+<p>Linux中的权限分为:读(r)、写(w)、执行(x)三种权限</p>
+<p>Linux的文件调用权限分为三级︰文件所有者（Owner)、用户组（Group)、其它用户(Other Users)</p>
+<p>只有文件的所有者和超级用户可以修改文件或目录的权限</p>
+<p>要执行Shell脚本需要有对此脚本文件的执行权限，如果没有则不能执行</p>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164739518-66571149.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>chmod命令可以使用八进制数来指定权限</p>
+<p><strong>举例</strong>:</p>
+<ul>
+<li>chmod 777 bootStart.sh为所有用户授予读、写、执行权限</li>
+<li>chmod 755 bootStart.sh为文件拥有者授予读、写、执行权限，同组用户和其他用户授予读、执行权限</li>
+<li>chmod 210 bootstart.sh为文件拥有者授予写权限，同组用户授予执行权限，其他用户没有任何权限</li>
+</ul>
+<p><strong>注意</strong>:三位数字分别代表不同用户的权限</p>
+<ul>
+<li>第1位表示文件拥有者的权限</li>
+<li>第2位表示同组用户的权限</li>
+<li>第3位表示其他用户的权限</li>
+</ul>
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164747415-1856910097.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h4 id="设置静态ip"><a href="#设置静态ip" class="headerlink" title="设置静态ip"></a>设置静态ip</h4><p>修改文件&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33，内容如下:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">TYPE</span>=<span class="hljs-string">&quot;Ethernet&quot;</span><br><span class="hljs-attr">PROXY_METHOD</span>=<span class="hljs-string">&quot;none&quot;</span><br><span class="hljs-attr">BROWSER_ONLY</span>=<span class="hljs-string">&quot;no&quot;</span><br><span class="hljs-attr">BOOTPROTO</span>=<span class="hljs-string">&quot;static&quot;</span><span class="hljs-comment">#使用静态IP地址，默认为dhcp</span><br><span class="hljs-attr">IPADDR</span>=<span class="hljs-string">&quot;192.168.138.100&quot;</span><span class="hljs-comment">#设置的静态IP地址</span><br><span class="hljs-attr">NETMASK</span>=<span class="hljs-string">&quot;255.255.255.0&quot;</span><span class="hljs-comment">#子网掩码</span><br><span class="hljs-attr">GATEWAY</span>=<span class="hljs-string">&quot;192.168.138.2&quot;</span><span class="hljs-comment">#网关地址</span><br><span class="hljs-attr">DNS1</span>=<span class="hljs-string">&quot;192.168.138. 2&quot;</span><span class="hljs-comment">#DNS服务器</span><br><span class="hljs-attr">DEFROUTE</span>=<span class="hljs-string">&quot;yes&quot;</span><br><span class="hljs-attr">IPV4_FAILURE_FATAL</span>=<span class="hljs-string">&quot;no&quot;</span><br><span class="hljs-attr">IPV6INIT</span>=<span class="hljs-string">&quot;yes &quot;</span><br><span class="hljs-attr">IPV6_AUTOCONF</span>=<span class="hljs-string">&quot;yes&quot;</span><br><span class="hljs-attr">IPV6_DEFROUTE</span>=<span class="hljs-string">&quot;yes&quot;</span><br><span class="hljs-attr">IPV6_FAILURE_FATAL</span>=<span class="hljs-string">&quot;no&quot;</span><br><span class="hljs-attr">IPV6_ADDR_GEN_MODE</span>=<span class="hljs-string">&quot;stable-privacy&quot;</span><br><span class="hljs-attr">NAME</span>=<span class="hljs-string">&quot;ens33&quot;</span><br><span class="hljs-attr">UUID</span>=<span class="hljs-string">&quot;95b614cd-79b0-4755-be8d-99f1cca7271b&quot;</span><br><span class="hljs-attr">DEVICE</span>=<span class="hljs-string">&quot;ens33&quot;</span><br><span class="hljs-attr">ONBOOT</span>=<span class="hljs-string">&quot;yes&quot;</span><span class="hljs-comment">#是否开机启用</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://typora011.oss-cn-guangzhou.aliyuncs.com/2592691-20220522164757410-1051230850.png" srcset="/img/loading.gif" lazyload alt="image"></p>
 
                 
               </div>
@@ -1105,6 +1666,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/08/10/README/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
